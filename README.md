@@ -74,6 +74,13 @@ API key it calls the Calendar API instead and the delay disappears.
 `?ping` is the first thing to look at whenever the calendar seems wrong — it
 prints the mode, the cache setting, the event count, or the exact failure.
 
+### Tooltips
+
+Hovering a day — or tapping it on a phone — opens a card giving the full date,
+whether it is taken and for how many nights, the name and span of any Slovak
+holiday or school break, and whether the Steiermark ski week falls there. The
+cells are keyboard-reachable too; Escape closes the card.
+
 ### School holidays
 
 The calendar also marks Slovak public holidays and school breaks, and tints the
