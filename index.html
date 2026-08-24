@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Villa E25</title>
+<meta name="description" content="Villa E25 — a private house in the Austrian Eastern Alps, kept for friends, family and partners. Not available for commercial rental.">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://e25.at/">
+<script>
+/* Always serve over SSL on the live domain. Leaves localhost and file:// alone. */
+(function(){var h=location.hostname;
+ if(location.protocol==='http:'&&h&&h!=='localhost'&&h!=='127.0.0.1'&&!/^\d+\.\d+\.\d+\.\d+$/.test(h)){
+   location.replace('https://'+location.host+location.pathname+location.search+location.hash);}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%23111613%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2227%22%20fill%3D%22%23C79A5C%22%20text-anchor%3D%22middle%22%3EE25%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap">
+<style>
+:root{
+  --ground:#F3F5F1; --ground-2:#E8EBE4; --ground-3:#DDE2D9;
+  --ink:#19201B; --ink-soft:#4B564E; --ink-faint:#7C877E;
+  --rule:#CBD1C7; --rule-strong:#A9B2A6;
+  --accent:#8E6529; --accent-soft:#B8935B;
+  --moss:#2D4535;
+  --scrim-a:rgba(16,22,18,.10); --scrim-b:rgba(16,22,18,.62);
+  --shadow:0 1px 2px rgba(25,32,27,.05),0 12px 32px -18px rgba(25,32,27,.35);
+  --maxw:1180px; --textw:33rem;
+  --head:"Jost","Avenir Next","Futura","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#111613; --ground-2:#181F1A; --ground-3:#212A23;
+    --ink:#ECEFE8; --ink-soft:#9EA99F; --ink-faint:#758077;
+    --rule:#2B342D; --rule-strong:#3D4941;
+    --accent:#C79A5C; --accent-soft:#8E7245;
+    --moss:#AFC4B4;
+    --scrim-a:rgba(8,12,10,.25); --scrim-b:rgba(8,12,10,.72);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 36px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#111613; --ground-2:#181F1A; --ground-3:#212A23;
+  --ink:#ECEFE8; --ink-soft:#9EA99F; --ink-faint:#758077;
+  --rule:#2B342D; --rule-strong:#3D4941;
+  --accent:#C79A5C; --accent-soft:#8E7245;
+  --moss:#AFC4B4;
+  --scrim-a:rgba(8,12,10,.25); --scrim-b:rgba(8,12,10,.72);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 36px -20px rgba(0,0,0,.8);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+section[id],figure[id]{scroll-margin-top:70px}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+  font-weight:400;font-size:17px;line-height:1.65;letter-spacing:.005em;
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- language switching ---------- */
+#site[data-lang="en"] [lang="sk"]{display:none !important}
+#site[data-lang="sk"] [lang="en"]{display:none !important}
+
+/* ---------- shared type ---------- */
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+.eyebrow{font-size:.685rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:.7em;margin:0 0 1.4rem}
+.eyebrow::before{content:"";width:6px;height:6px;flex:none;background:var(--accent);
+  transform:rotate(45deg)}
+h1,h2,h3,.num{font-family:var(--head);font-weight:500;
+  text-wrap:balance;letter-spacing:-.022em}
+h2{font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.02;margin:0 0 1.5rem}
+h3{font-size:1.35rem;line-height:1.15;margin:0 0 .5rem}
+p{margin:0 0 1.15rem;max-width:var(--textw)}
+.lead{font-size:1.12rem;color:var(--ink-soft)}
+.section{padding:clamp(72px,10vw,140px) 0;position:relative}
+.section + .section{border-top:1px solid var(--rule)}
+.cap{font-size:.66rem;letter-spacing:.19em;text-transform:uppercase;color:var(--ink-faint);
+  font-weight:500;margin-top:.75rem}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:40;background:var(--ground);background:color-mix(in srgb,var(--ground) 88%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.topbar-in{max-width:var(--maxw);margin-inline:auto;padding:0 clamp(20px,5vw,48px);
+  height:58px;display:flex;align-items:center;gap:1.5rem}
+.mark{font-family:var(--head);font-weight:500;font-size:1.02rem;letter-spacing:.2em;
+  text-decoration:none;flex:none}
+.mark span{color:var(--accent)}
+.navlinks{display:flex;gap:1.45rem;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+  color:var(--ink-soft);white-space:nowrap;padding:.4rem 0;border-bottom:1px solid transparent;
+  transition:color .2s,border-color .2s}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--ink);border-color:var(--accent)}
+.lang{display:flex;align-items:center;gap:.15rem;flex:none;margin-left:.4rem}
+.lang button{font:inherit;font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  background:none;border:0;padding:.35rem .5rem;color:var(--ink-faint);cursor:pointer;border-radius:2px;
+  transition:color .2s,background .2s}
+.lang button:hover{color:var(--ink)}
+.lang button[aria-pressed="true"]{color:var(--ground);background:var(--ink)}
+.lang i{font-style:normal;color:var(--rule-strong)}
+@media (max-width:820px){.navlinks{display:none}.lang{margin-left:auto}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(88vh,760px);display:flex;align-items:flex-end;
+  overflow:hidden;background:var(--ground-3)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  animation:drift 26s ease-out forwards}
+@keyframes drift{from{transform:scale(1.09)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(10,14,11,.40) 0%,rgba(10,14,11,.10) 30%,rgba(10,14,11,.55) 72%,rgba(10,14,11,.86) 100%),
+    linear-gradient(100deg,rgba(10,14,11,.62) 0%,rgba(10,14,11,.24) 38%,rgba(10,14,11,0) 66%)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin-inline:auto;
+  padding:0 clamp(20px,5vw,48px) clamp(38px,6vw,64px)}
+.hero .eyebrow{color:rgba(255,255,255,.93);align-items:flex-start;font-size:.65rem;line-height:1.6}
+.hero .eyebrow::before{background:#E7C79A;margin-top:.42em}
+.hero h1{font-size:clamp(3.3rem,11.5vw,8rem);line-height:.92;margin:0;color:#fff;
+  letter-spacing:-.045em;font-weight:500;text-shadow:0 2px 30px rgba(8,12,10,.45)}
+.hero .eyebrow,.hero-lead,.hero-strip{text-shadow:0 1px 14px rgba(8,12,10,.7)}
+.hero h1 em{font-style:italic;font-weight:500}
+.hero-lead{color:rgba(255,255,255,.94);font-size:clamp(1.02rem,2.1vw,1.28rem);
+  max-width:30rem;margin:1.5rem 0 0;font-weight:300}
+.hero-strip{margin-top:2.4rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.28);
+  display:flex;flex-wrap:wrap;gap:.55rem 1.6rem;font-size:.68rem;letter-spacing:.17em;
+  text-transform:uppercase;color:rgba(255,255,255,.82);font-weight:400}
+
+/* ---------- notice ---------- */
+.notice{background:var(--ground-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.notice-in{max-width:var(--maxw);margin-inline:auto;padding:clamp(34px,5vw,52px) clamp(20px,5vw,48px);
+  display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(18px,4vw,56px);align-items:start}
+.notice h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin:0}
+.notice p{margin:0;color:var(--ink-soft);max-width:38rem}
+.notice p:first-child{color:var(--ink)}
+.notice p + p{margin-top:.9rem}
+@media (max-width:720px){.notice-in{grid-template-columns:1fr}}
+
+/* ---------- welcome ---------- */
+.welcome{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,80px);align-items:start}
+.welcome-body div[lang] p:first-of-type{font-size:1.3rem;line-height:1.5;color:var(--ink)}
+.sig{margin-top:2rem;padding-top:1.1rem;border-top:1px solid var(--rule);max-width:16rem}
+.sig strong{display:block;font-family:var(--head);font-weight:500;font-size:1.3rem;letter-spacing:.01em}
+.sig span{font-size:.66rem;letter-spacing:.19em;text-transform:uppercase;color:var(--ink-faint)}
+@media (max-width:860px){.welcome{grid-template-columns:1fr}}
+
+/* ---------- figures / plates ---------- */
+figure{margin:0}
+.frame{overflow:hidden;background:var(--ground-3);box-shadow:var(--shadow)}
+.frame img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;
+  transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.frame.tall img{aspect-ratio:4/5}
+.frame.sq img{aspect-ratio:5/4}
+figure:hover .frame img{transform:scale(1.035)}
+.plate{position:relative;margin:0}
+.plate img{width:100%;height:clamp(300px,58vh,640px);object-fit:cover}
+.plate figcaption{position:absolute;left:0;bottom:0;padding:1rem clamp(20px,5vw,48px);
+  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.9);
+  text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.plate::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(8,12,10,.55) 100%)}
+
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.2vw,26px)}
+.grid-2.lead-tile>figure:first-child{grid-column:1/-1}
+.grid-2.lead-tile>figure:first-child .frame img{aspect-ratio:21/9}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,26px)}
+.grid-3>figure.wide{grid-column:1/-1}
+.grid-3>figure.wide .frame img{aspect-ratio:21/9}
+@media (max-width:760px){.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+.split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:clamp(28px,5vw,72px);align-items:center}
+.split.rev{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+.split.rev>.split-text{order:2}
+@media (max-width:860px){.split,.split.rev{grid-template-columns:1fr}.split.rev>.split-text{order:0}}
+
+/* ---------- glance table ---------- */
+.glance{border-top:1px solid var(--rule-strong);margin-top:clamp(28px,4vw,48px)}
+.glance-row{display:grid;grid-template-columns:minmax(0,6.5rem) minmax(0,1fr);gap:1.5rem;
+  align-items:baseline;padding:.95rem 0;border-bottom:1px solid var(--rule)}
+.glance .num{font-size:1.55rem;line-height:1;text-align:right;font-weight:500}
+.glance .num sup{font-size:.55em;font-weight:400;vertical-align:super}
+.glance-lbl{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- board (mountains) ---------- */
+.board{border-top:1px solid var(--rule-strong)}
+.board-row{display:grid;grid-template-columns:minmax(0,1.35fr) repeat(3,minmax(0,.55fr)) minmax(0,.85fr);
+  gap:1rem 1.5rem;align-items:baseline;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
+.board-name{font-family:var(--head);font-weight:500;font-size:1.85rem;line-height:1.05;margin:0}
+.board-sub{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-top:.35rem}
+.board-fig{font-family:var(--head);font-size:1.5rem;line-height:1;font-weight:500}
+.board-fig small{display:block;font-family:"Jost",sans-serif;font-size:.62rem;font-weight:400;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--ink-faint);margin-top:.45rem}
+.board-dist{text-align:right;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+.board-dist b{font-weight:500}
+@media (max-width:760px){
+  .board-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .board-head{grid-column:1/-1}
+  .board-dist{grid-column:1/-1;text-align:left}
+}
+
+/* ---------- topic grid ---------- */
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:0 clamp(28px,4vw,56px);margin-top:clamp(30px,4vw,52px);
+  border-top:1px solid var(--rule-strong)}
+.topic{padding:1.5rem 0 1.6rem;border-bottom:1px solid var(--rule)}
+.topic h3{font-size:1.18rem;font-weight:500;letter-spacing:-.012em;margin:0 0 .55rem}
+.topic p{margin:0;max-width:30rem;color:var(--ink-soft);font-size:.99rem;line-height:1.6}
+
+/* ---------- season columns (legacy) ---------- */
+.seasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,72px);
+  margin-top:clamp(30px,4vw,56px)}
+.season h3{font-family:"Jost",sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:500;color:var(--accent);padding-bottom:.8rem;border-bottom:1px solid var(--rule-strong);margin-bottom:0}
+.season ul{list-style:none;margin:0;padding:0}
+.season li{padding:.85rem 0;border-bottom:1px solid var(--rule)}
+.season li b{display:block;font-weight:400;font-size:1.02rem;color:var(--ink)}
+.season li span{font-size:.86rem;color:var(--ink-faint)}
+@media (max-width:680px){.seasons{grid-template-columns:1fr}}
+
+/* ---------- facts / arrival ---------- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  gap:clamp(18px,2.2vw,28px);margin-top:clamp(26px,4vw,44px);
+  border-top:1px solid var(--rule-strong);padding-top:clamp(22px,3vw,34px)}
+.fact b{display:block;font-family:var(--head);font-size:1.45rem;font-weight:500;line-height:1.15}
+.fact span{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-faint);margin-top:.4rem}
+.caution{margin-top:clamp(30px,4vw,48px);padding:1.3rem 1.5rem;background:var(--ground-2);
+  border-left:2px solid var(--accent)}
+.caution p{margin:0;color:var(--ink-soft);max-width:44rem;font-size:.96rem}
+.caution strong{display:block;font-weight:500;color:var(--ink);font-size:.68rem;letter-spacing:.18em;
+  text-transform:uppercase;margin-bottom:.5rem}
+
+/* ---------- tour ---------- */
+.tour{text-align:center}
+.tour p{margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:.9rem;margin-top:1.2rem;padding:1rem 1.9rem;
+  border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:.72rem;
+  letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  transition:background .25s,color .25s,border-color .25s}
+.btn:hover,.btn:focus-visible{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.btn svg{width:15px;height:15px;flex:none}
+
+/* ---------- closing ---------- */
+.closing{text-align:center;padding-bottom:clamp(48px,7vw,90px)}
+.closing h2{font-size:clamp(2.6rem,8vw,5.4rem);line-height:.95}
+.closing h2 em{font-style:italic}
+.closing p{margin-inline:auto}
+.happy{margin-top:1.6rem;font-style:italic;color:var(--ink)}
+.postscript{margin-top:clamp(34px,5vw,56px);padding-top:1.6rem;border-top:1px solid var(--rule);
+  max-width:34rem;margin-inline:auto}
+.postscript p{font-size:.95rem;color:var(--ink-soft)}
+footer{border-top:1px solid var(--rule);background:var(--ground-2)}
+.foot-in{max-width:var(--maxw);margin-inline:auto;padding:2.2rem clamp(20px,5vw,48px);
+  display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
+  font-size:.65rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-faint)}
+
+
+/* ---------- practical (address / wi-fi) ---------- */
+.practical{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:clamp(18px,3vw,32px);margin-top:clamp(30px,4vw,48px)}
+.pcard{border-top:1px solid var(--rule-strong);padding-top:1.1rem}
+.pcard h3{font-family:"Jost",sans-serif;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:500;color:var(--accent);margin:0 0 .8rem}
+.pcard p{margin:0;font-size:1.02rem;line-height:1.5;max-width:none}
+.pcard .mono{font-family:var(--head);font-weight:500;font-size:1.5rem;line-height:1.25;display:block}
+.pcard small{display:block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);margin-top:.55rem}
+.pcard a{color:var(--accent);text-underline-offset:3px}
+
+/* ---------- availability ---------- */
+:root{--taken-bg:#2D4535;--taken-fg:#F3F5F1;--today-ring:#8E6529;--busy-bg:#E2E7DE}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--taken-bg:#3F6250;--taken-fg:#EDF2EE;--today-ring:#C79A5C;--busy-bg:#1E2721}}
+:root[data-theme="dark"]{--taken-bg:#3F6250;--taken-fg:#EDF2EE;--today-ring:#C79A5C;--busy-bg:#1E2721}
+
+.calwrap{margin-top:clamp(28px,4vw,44px)}
+.cal-head{display:flex;align-items:center;gap:1rem;padding-bottom:.9rem;
+  border-bottom:1px solid var(--rule-strong)}
+.cal-range{margin:0;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);flex:1}
+.cal-nav{display:flex;gap:.4rem}
+.cal-nav button{font:inherit;width:34px;height:34px;display:grid;place-items:center;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-soft);cursor:pointer;
+  transition:background .2s,color .2s,border-color .2s}
+.cal-nav button:hover:not(:disabled){background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.cal-nav button:disabled{opacity:.32;cursor:default}
+.cal-nav svg{width:13px;height:13px}
+.cal-months{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(22px,3vw,40px);margin-top:clamp(22px,3vw,34px)}
+@media (max-width:900px){.cal-months{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.cal-months{grid-template-columns:1fr}}
+.cal-m h4{margin:0 0 .9rem;font-family:var(--head);font-size:1.06rem;font-weight:500;
+  letter-spacing:-.012em}
+.cal-m h4 span{color:var(--ink-faint);font-weight:400}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.cal-dow{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
+  text-align:center;padding-bottom:.4rem}
+.cal-d{aspect-ratio:1;display:grid;place-items:center;font-size:.8rem;
+  font-variant-numeric:tabular-nums;color:var(--ink-soft);border-radius:50%;position:relative}
+.cal-d.pad{visibility:hidden}
+.cal-d.past{color:var(--ink-faint);opacity:.45}
+.cal-d.taken{background-color:var(--taken-bg);color:var(--taken-fg);font-weight:500}
+.cal-d.today{box-shadow:inset 0 0 0 1px var(--today-ring);font-weight:500;color:var(--ink)}
+.cal-d.today.taken{box-shadow:inset 0 0 0 1px var(--today-ring)}
+.cal-d.busy{background-color:var(--busy-bg)}
+.cal-d.busy.taken{background-color:var(--taken-bg)}
+/* the holiday dot is painted, not a pseudo-element: a pseudo on a grid
+   container becomes a grid item and inflates the column tracks */
+.cal-d.hol{background-image:radial-gradient(circle at 50% calc(100% - 6px),
+  var(--accent) 0 2px, transparent 2px)}
+.cal-d.hol.taken{background-image:radial-gradient(circle at 50% calc(100% - 6px),
+  var(--taken-fg) 0 2px, transparent 2px)}
+
+/* ---------- ten-year holiday table ---------- */
+.hol{margin-top:clamp(30px,4vw,46px);border-top:1px solid var(--rule)}
+.hol>summary{list-style:none;cursor:pointer;padding:1.1rem 0;display:flex;align-items:center;gap:.7rem;
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.hol>summary::-webkit-details-marker{display:none}
+.hol>summary::before{content:"";width:6px;height:6px;flex:none;background:var(--accent);
+  transform:rotate(45deg);transition:transform .25s}
+.hol[open]>summary::before{transform:rotate(225deg)}
+.hol>summary:hover{color:var(--ink)}
+.holwrap{overflow-x:auto;max-width:100%;padding-bottom:.6rem}
+table.holtab{border-collapse:collapse;width:100%;min-width:34rem;font-size:.9rem}
+table.holtab th{text-align:left;font-weight:500;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);padding:0 1.1rem .7rem 0;border-bottom:1px solid var(--rule-strong);white-space:nowrap}
+table.holtab td{padding:.72rem 1.1rem .72rem 0;border-bottom:1px solid var(--rule);
+  color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.holtab td.yr{font-family:var(--head);font-size:1.05rem;font-weight:500;color:var(--ink)}
+table.holtab tr.clash td{color:var(--ink)}
+table.holtab td .star{color:var(--accent);font-weight:600}
+table.holtab td.est::after{content:" ~";color:var(--ink-faint)}
+.holnote{margin:1.1rem 0 0;font-size:.85rem;color:var(--ink-faint);max-width:40rem}
+.cal-note{margin:1.6rem 0 0;font-size:.86rem;color:var(--ink-faint);max-width:34rem}
+.cal-warn{margin-top:1.2rem;padding:.9rem 1.1rem;background:var(--ground-2);
+  border-left:2px solid var(--accent);font-size:.9rem;color:var(--ink-soft);max-width:40rem}
+.cal-dbg{margin-top:1.4rem;padding:1.1rem 1.3rem;background:var(--ground-2);border:1px solid var(--rule);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.7;
+  color:var(--ink-soft);overflow-x:auto}
+.cal-dbg b{color:var(--ink);font-weight:600}
+.cal-dbg .y{color:#2D6A4A}.cal-dbg .n{color:#8C3A2E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cal-dbg .y{color:#6FBF93}
+  :root:not([data-theme="light"]) .cal-dbg .n{color:#E08C7D}}
+:root[data-theme="dark"] .cal-dbg .y{color:#6FBF93}:root[data-theme="dark"] .cal-dbg .n{color:#E08C7D}
+.cal-frame{border:1px solid var(--rule);background:#fff;box-shadow:var(--shadow);overflow:hidden}
+.cal-frame iframe{display:block;width:100%;height:640px;border:0}
+@media (max-width:640px){.cal-frame iframe{height:520px}}
+.callegend{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:1.3rem;
+  font-size:.66rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-faint)}
+.callegend span{display:flex;align-items:center;gap:.6em}
+.callegend i{width:11px;height:11px;flex:none;border-radius:50%;background:var(--taken-bg);font-style:normal}
+.callegend i.free{background:transparent;border:1px solid var(--rule-strong)}
+.callegend i.hold{background:var(--accent);width:5px;height:5px}
+.callegend i.busyd{background:var(--busy-bg);border:1px solid var(--rule-strong);border-radius:2px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .hero-img{animation:none}
+  .frame img,figure:hover .frame img{transition:none;transform:none}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+</style>
+</head>
+<body>
+<div id="site" data-lang="en">
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="mark" href="#top">VILLA <span>E25</span></a>
+    <nav class="navlinks">
+      <a href="#house"><span lang="en">The house</span><span lang="sk">Dom</span></a>
+      <a href="#spa"><span lang="en">Spa</span><span lang="sk">Wellness</span></a>
+      <a href="#rooms"><span lang="en">Rooms</span><span lang="sk">Izby</span></a>
+      <a href="#outside"><span lang="en">Outside</span><span lang="sk">Vonku</span></a>
+      <a href="#mountains"><span lang="en">Skiing</span><span lang="sk">Lyžovanie</span></a>
+      <a href="#winter"><span lang="en">Winter</span><span lang="sk">Zima</span></a>
+      <a href="#summer"><span lang="en">Summer</span><span lang="sk">Leto</span></a>
+      <a href="#arrival"><span lang="en">Getting here</span><span lang="sk">Cesta</span></a>
+      <a href="#calendar" id="navcal"><span lang="en">Free dates</span><span lang="sk">Voľné termíny</span></a>
+    </nav>
+    <div class="lang">
+      <button type="button" data-set="en" aria-pressed="true">EN</button><i>/</i><button type="button" data-set="sk" aria-pressed="false">SK</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <img class="hero-img" src="img/terrace-table.jpg" alt="The covered terrace at Villa E25, table laid for ten, looking out over the valley.">
+  <div class="hero-in">
+    <p class="eyebrow">Steinhaus am Semmering &middot; Steiermark &middot; Austria</p>
+    <h1>Villa <em>E25</em></h1>
+    <p class="hero-lead" lang="en">A private house in the Austrian Alps, an hour and a half from Bratislava. Kept for friends, family and the people we work with — and never for rent.</p>
+    <p class="hero-lead" lang="sk">Súkromný dom v rakúskych Alpách, hodina a pol z Bratislavy. Pre priateľov, rodinu a ľudí, s ktorými pracujeme — nikdy nie na prenájom.</p>
+    <div class="hero-strip">
+      <span lang="en">1,000 m elevation</span><span lang="sk">1 000 m n. m.</span>
+      <span lang="en">530 m² of house</span><span lang="sk">530 m² domu</span>
+      <span lang="en">Sleeps fourteen</span><span lang="sk">Spí štrnásť</span>
+      <span lang="en">Pool &amp; sauna, all year</span><span lang="sk">Bazén a sauna po celý rok</span>
+    </div>
+  </div>
+</section>
+
+<section class="notice">
+  <div class="notice-in">
+    <h2><span lang="en">Not a rental.</span><span lang="sk">Nie je na prenájom.</span></h2>
+    <div>
+      <p lang="en">E25 is a private family house. It is not let commercially — there is no price list, no booking page, no nightly rate and nothing to pay. Guests come by personal invitation: friends, family, and business partners we know well.</p>
+      <p lang="en">That is the whole arrangement, and we intend to keep it that way. This page exists so you can see the house before you say yes.</p>
+      <p lang="sk">E25 je súkromný rodinný dom. Neprenajíma sa komerčne — nemá cenník, rezervačnú stránku, cenu za noc a neplatí sa nič. Hostia prichádzajú na osobné pozvanie: priatelia, rodina a obchodní partneri, ktorých dobre poznáme.</p>
+      <p lang="sk">Tak to je a tak to aj zostane. Táto stránka je tu len preto, aby ste dom videli skôr, než poviete áno.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="house">
+  <div class="wrap">
+    <div class="welcome rv">
+      <div class="welcome-body">
+        <p class="eyebrow"><span lang="en">The invitation</span><span lang="sk">Pozvanie</span></p>
+        <div lang="en">
+          <p>We are glad to have you up here. This corner of the Alps means a great deal to us, and there is nothing finer than sharing it.</p>
+          <p>The house is yours for the stay. Open every door, light the fire, swim at midnight, cook a long dinner on the terrace and let it run late.</p>
+          <p>Bring good company. The mountain takes care of the rest.</p>
+        </div>
+        <div lang="sk">
+          <p>Sme radi, že ste tu hore. Tento kút Álp pre nás veľa znamená a nič nie je krajšie, než sa oň podeliť.</p>
+          <p>Dom je počas pobytu váš. Otvorte každé dvere, zakúrte v krbe, plávajte o polnoci, uvarte dlhú večeru na terase a nechajte ju natiahnuť sa do noci.</p>
+          <p>Prineste dobrú spoločnosť. O zvyšok sa postará hora.</p>
+        </div>
+        <div class="sig">
+          <strong>Juraj Plechlo</strong>
+          <span lang="en">Host</span><span lang="sk">Hostiteľ</span>
+        </div>
+      </div>
+      <div>
+        <figure>
+          <div class="frame sq"><img src="img/garden.jpg" loading="lazy" alt="Villa E25 seen from its lawn, white walls under a dark gabled roof."></div>
+          <p class="cap"><span lang="en">The house, restored 2020</span><span lang="sk">Dom, rekonštrukcia 2020</span></p>
+        </figure>
+        <div class="glance">
+          <div class="glance-row"><span class="num">530<sup>m²</sup></span><span class="glance-lbl"><span lang="en">Living space over three floors</span><span lang="sk">Obytná plocha na troch podlažiach</span></span></div>
+          <div class="glance-row"><span class="num">6</span><span class="glance-lbl"><span lang="en">Bedrooms &mdash; three of them apartments</span><span lang="sk">Spálne &mdash; tri z nich apartmány</span></span></div>
+          <div class="glance-row"><span class="num">7</span><span class="glance-lbl"><span lang="en">King-size beds, plus five sofa beds</span><span lang="sk">Manželských postelí, plus päť rozkladacích</span></span></div>
+          <div class="glance-row"><span class="num">2 000<sup>m²</sup></span><span class="glance-lbl"><span lang="en">Of own forest, beyond the fenced garden</span><span lang="sk">Vlastného lesa, za oplotenou záhradou</span></span></div>
+          <div class="glance-row"><span class="num">1 000<sup>m</sup></span><span class="glance-lbl"><span lang="en">Above sea level</span><span lang="sk">Nad morom</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<figure class="plate rv">
+  <img src="img/pool-glass.jpg" loading="lazy" alt="The heated indoor pool at Villa E25 against a full-height wall of glass looking into the valley.">
+  <figcaption><span lang="en">Plate I &middot; The pool, late afternoon</span><span lang="sk">Tabuľa I &middot; Bazén, neskoré popoludnie</span></figcaption>
+</figure>
+
+<section class="section" id="spa">
+  <div class="wrap">
+    <div class="split rv">
+      <div class="split-text">
+        <p class="eyebrow"><span lang="en">Spa floor</span><span lang="sk">Wellness</span></p>
+        <h2><span lang="en">Water, heat, and a wall of glass.</span><span lang="sk">Voda, teplo a sklenená stena.</span></h2>
+        <p class="lead" lang="en">A heated indoor pool runs the length of the lower floor, with the valley on the other side of the glass. A Finnish sauna at one end, a lounge in between, loungers where the light falls.</p>
+        <p class="lead" lang="en">It is open every day of the year, at any hour. In your own house there is no closing time.</p>
+        <p class="lead" lang="sk">Vyhrievaný krytý bazén vedie po celej dĺžke spodného podlažia a za sklom je celé údolie. Na jednom konci fínska sauna, medzi tým oddychová zóna a ležadlá tam, kde dopadá svetlo.</p>
+        <p class="lead" lang="sk">Otvorené každý deň v roku a v ktorúkoľvek hodinu. Vo vlastnom dome sa nezatvára.</p>
+      </div>
+      <div class="grid-2 lead-tile">
+        <figure><div class="frame"><img src="img/pool-lounge.jpg" loading="lazy" alt="Pool with loungers and relaxation area."></div><p class="cap"><span lang="en">Pool &amp; loungers</span><span lang="sk">Bazén a ležadlá</span></p></figure>
+        <figure><div class="frame"><img src="img/sauna.jpg" loading="lazy" alt="Finnish sauna in pale timber."></div><p class="cap"><span lang="en">Finnish sauna</span><span lang="sk">Fínska sauna</span></p></figure>
+        <figure><div class="frame"><img src="img/relax.jpg" loading="lazy" alt="Relaxation lounge beside the pool."></div><p class="cap"><span lang="en">Relax lounge</span><span lang="sk">Oddychová zóna</span></p></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="living">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow"><span lang="en">Inside</span><span lang="sk">Vnútri</span></p>
+      <h2><span lang="en">Rooms built for a crowd.</span><span lang="sk">Miestnosti pre veľa ľudí.</span></h2>
+      <p class="lead" lang="en">A double-height dining hall under a wooden gallery. A salon with a grand piano. A sun-flooded sitting room, and a proper country kitchen you can cook in with ten people in the way.</p>
+      <p class="lead" lang="sk">Dvojpodlažná jedálenská hala s dreveným ochodzom. Salón s koncertným krídlom. Presvetlená obývacia izba a poriadna vidiecka kuchyňa, v ktorej sa dá variť, aj keď v nej stojí desať ľudí.</p>
+    </div>
+    <div class="grid-2 rv" style="margin-top:clamp(28px,4vw,48px)">
+      <figure><div class="frame"><img src="img/dining-hall.jpg" loading="lazy" alt="Double-height dining hall with wooden gallery above."></div><p class="cap"><span lang="en">Dining hall &amp; gallery</span><span lang="sk">Jedálenská hala a ochodz</span></p></figure>
+      <figure><div class="frame"><img src="img/salon-piano.jpg" loading="lazy" alt="Salon with a grand piano and long sofas."></div><p class="cap"><span lang="en">Salon &amp; grand piano</span><span lang="sk">Salón a krídlo</span></p></figure>
+      <figure><div class="frame"><img src="img/hall-gallery.jpg" loading="lazy" alt="The hall seen from its other end, gallery above, bookcase along the wall."></div><p class="cap"><span lang="en">The hall, other end</span><span lang="sk">Hala z druhej strany</span></p></figure>
+      <figure><div class="frame"><img src="img/kitchen.jpg" loading="lazy" alt="Country kitchen with a large island."></div><p class="cap"><span lang="en">Kitchen</span><span lang="sk">Kuchyňa</span></p></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rooms">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow"><span lang="en">Sleeps fourteen</span><span lang="sk">Spí štrnásť</span></p>
+      <h2><span lang="en">Six bedrooms, three of them apartments.</span><span lang="sk">Šesť spální, tri z nich apartmány.</span></h2>
+      <p class="lead" lang="en">Seven king-size beds, four single sofa beds and a two-seat couch in the living room: fourteen sleep in proper beds, twenty if you fill everything. Five bedrooms have their own bathroom, and three are self-contained apartments with kitchenettes — which is what lets several families, or several colleagues, share the house without anyone queueing for a shower.</p>
+      <p class="lead" lang="sk">Sedem manželských postelí, štyri jednolôžkové rozkladacie kreslá a dvojmiestna pohovka v obývačke: štrnásť ľudí spí v poriadnych posteliach, dvadsať, ak sa využije všetko. Päť spální má vlastnú kúpeľňu a tri sú samostatné apartmány s kuchynkou — vďaka nim dom zvládne niekoľko rodín či kolegov naraz bez toho, aby sa stálo v rade na sprchu.</p>
+    </div>
+    <div class="grid-3 rv" style="margin-top:clamp(28px,4vw,48px)">
+      <figure><div class="frame sq"><img src="img/room-0.jpg" loading="lazy" alt="Room 0 — the master bedroom, chandelier and parquet floor."></div><p class="cap">Room 0</p></figure>
+      <figure><div class="frame sq"><img src="img/room-1.jpg" loading="lazy" alt="Room 1, the family suite — two beds and a sofa."></div><p class="cap">Room 1 &middot; Family Suite</p></figure>
+      <figure><div class="frame sq"><img src="img/room-2.jpg" loading="lazy" alt="Room 2, the Versace room — double bed on parquet."></div><p class="cap">Room 2 &middot; Versace Room</p></figure>
+      <figure><div class="frame sq"><img src="img/room-3.jpg" loading="lazy" alt="Room 3 — walnut bed under a pine ceiling, with a television."></div><p class="cap">Room 3</p></figure>
+      <figure><div class="frame sq"><img src="img/room-4.jpg" loading="lazy" alt="Room 4 — pale oak furniture, carpet and a pine ceiling."></div><p class="cap">Room 4 (JP)</p></figure>
+      <figure><div class="frame sq"><img src="img/room-5.jpg" loading="lazy" alt="Room 5 — studio apartment with a kitchenette and desk."></div><p class="cap">Room 5</p></figure>
+      <figure class="wide"><div class="frame"><img src="img/bath-view.jpg" loading="lazy" alt="An en-suite bathroom with a window onto the valley."></div><p class="cap"><span lang="en">One of the en-suite bathrooms &mdash; with the valley in the window</span><span lang="sk">Jedna z kúpeľní pri spálni &mdash; s údolím v okne</span></p></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="outside">
+  <div class="wrap">
+    <div class="split rev rv">
+      <div class="split-text">
+        <p class="eyebrow"><span lang="en">Terrace &amp; garden</span><span lang="sk">Terasa a záhrada</span></p>
+        <h2><span lang="en">Where the evenings end up.</span><span lang="sk">Tam, kde končia večery.</span></h2>
+        <p class="lead" lang="en">A covered, heated terrace runs the whole south face: a table for ten, a sunken lounge, a gas grill and a wood grill, and the valley in front of all of it. Heated means it is usable in February. Below lies the fenced garden — out of sight of anyone, with a second grill spot, a picnic table and lawn enough for a game — and beyond the fence, over 2,000 m² of our own forest.</p>
+        <p class="lead" lang="sk">Po celej južnej strane domu vedie krytá, vyhrievaná terasa: stôl pre desať, zapustené sedenie, plynový aj drevený gril a pred tým celé údolie. Vyhrievaná znamená, že sa dá používať aj vo februári. Pod ňou oplotená záhrada — mimo dohľadu, s druhým grilom, piknikovým stolom a trávnikom, na ktorom sa dá aj hrať — a za plotom vyše 2 000 m² vlastného lesa.</p>
+      </div>
+      <div class="grid-2 lead-tile">
+        <figure><div class="frame"><img src="img/terrace-barrels.jpg" loading="lazy" alt="Terrace with wine-barrel tables and the valley beyond."></div><p class="cap"><span lang="en">The covered terrace</span><span lang="sk">Krytá terasa</span></p></figure>
+        <figure><div class="frame"><img src="img/drive.jpg" loading="lazy" alt="Planted grounds and the drive up to the house."></div><p class="cap"><span lang="en">Grounds</span><span lang="sk">Pozemok</span></p></figure>
+        <figure><div class="frame"><img src="img/exterior.jpg" loading="lazy" alt="The house seen from the drive, white walls under a dark gabled roof."></div><p class="cap"><span lang="en">The house</span><span lang="sk">Dom</span></p></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="mountains">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow"><span lang="en">Two resorts, minutes away</span><span lang="sk">Dve strediská, pár minút</span></p>
+      <h2><span lang="en">The closest serious skiing to Bratislava.</span><span lang="sk">Najbližšie poriadne lyžovanie od Bratislavy.</span></h2>
+      <p class="lead" lang="en">Two full resorts sit within minutes of the front door — four to one, six to the other — and they are not the same kind of place. Stuhleck is the big one — a thousand metres of vertical and runs over five kilometres long. Semmering is the evening one, floodlit until ten.</p>
+      <p class="lead" lang="sk">Pár minút od dverí sú dve plnohodnotné strediská — štyri minúty k jednému, šesť k druhému — a každé je iné. Stuhleck je to veľké — tisíc metrov prevýšenia a zjazdy dlhšie ako päť kilometrov. Semmering je to večerné, osvetlené do desiatej.</p>
+      <div class="board">
+        <div class="board-row">
+          <div class="board-head">
+            <h3 class="board-name">Stuhleck</h3>
+            <p class="board-sub"><span lang="en">Eastern Austria&rsquo;s largest resort</span><span lang="sk">Najväčšie stredisko východného Rakúska</span></p>
+          </div>
+          <div class="board-fig">26<small><span lang="en">km slopes</span><span lang="sk">km zjazdoviek</span></small></div>
+          <div class="board-fig">1 782<small><span lang="en">m peak</span><span lang="sk">m vrchol</span></small></div>
+          <div class="board-fig">11<small><span lang="en">lifts</span><span lang="sk">vlekov</span></small></div>
+          <div class="board-dist"><b>4 min</b><br><span lang="en">by car from the door</span><span lang="sk">autom od dverí</span></div>
+        </div>
+        <div class="board-row">
+          <div class="board-head">
+            <h3 class="board-name">Semmering &middot; Hirschenkogel</h3>
+            <p class="board-sub"><span lang="en">World Cup slope, floodlit until 22:00</span><span lang="sk">Zjazdovka Svetového pohára, osvetlená do 22:00</span></p>
+          </div>
+          <div class="board-fig">14<small><span lang="en">km slopes</span><span lang="sk">km zjazdoviek</span></small></div>
+          <div class="board-fig">1 340<small><span lang="en">m peak</span><span lang="sk">m vrchol</span></small></div>
+          <div class="board-fig">13<small><span lang="en">km floodlit</span><span lang="sk">km osvetlených</span></small></div>
+          <div class="board-dist"><b>6 min</b><br><span lang="en">by car from the door</span><span lang="sk">autom od dverí</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2 rv" id="resortpix" style="display:none;margin-top:clamp(30px,4vw,48px)">
+      <figure style="display:none"><div class="frame"><img src="img/stuhleck.jpg" alt="Stuhleck ski resort above Spital am Semmering." onload="this.closest('figure').style.display='';document.getElementById('resortpix').style.display='grid'"></div><p class="cap">Stuhleck</p></figure>
+      <figure style="display:none"><div class="frame"><img src="img/semmering.jpg" alt="The Hirschenkogel above the Semmering pass." onload="this.closest('figure').style.display='';document.getElementById('resortpix').style.display='grid'"></div><p class="cap">Semmering &middot; Hirschenkogel</p></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="winter">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow"><span lang="en">Winter</span><span lang="sk">Zima</span></p>
+      <h2><span lang="en">December to April, on snow.</span><span lang="sk">Od decembra do apríla, na snehu.</span></h2>
+      <p class="lead" lang="en">Both resorts make their own snow, so the season holds even in a thin winter. Everything below is within half an hour.</p>
+      <p class="lead" lang="sk">Obe strediská si vyrábajú sneh, takže sezóna vydrží aj v slabšej zime. Všetko nižšie je do pol hodiny.</p>
+    </div>
+    <div class="topics rv">
+      <article class="topic">
+        <h3><span lang="en">Downhill</span><span lang="sk">Zjazdovky</span></h3>
+        <p lang="en">Stuhleck runs from 777 m up to 1,782 m — a thousand metres of vertical, and a single descent of more than five kilometres. Austria&rsquo;s longest four-seat chairlift, 2.7 km, carries you up in eleven minutes. Snowmaking covers the whole mountain.</p>
+        <p lang="sk">Stuhleck vedie od 777 m až po 1 782 m — tisíc metrov prevýšenia a jeden zjazd dlhší ako päť kilometrov. Najdlhšia štvorsedačka v Rakúsku, 2,7 km, vás vyvezie za jedenásť minút. Zasnežovanie pokrýva celú horu.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Skiing after dark</span><span lang="sk">Lyžovanie po tme</span></h3>
+        <p lang="en">Thirteen of Semmering&rsquo;s fourteen kilometres are floodlit — World Cup lighting, six pistes — every evening from 18:00 to 21:00, and until 22:00 from Thursday to Saturday. Stuhleck lights its Sonnenlift slope and funpark from 17:30 to 20:30.</p>
+        <p lang="sk">Trinásť zo štrnástich kilometrov na Semmeringu je osvetlených — svetlá na úrovni Svetového pohára, šesť zjazdoviek — každý večer od 18:00 do 21:00, od štvrtka do soboty až do 22:00. Stuhleck osvetľuje zjazdovku pri Sonnenlifte a funpark od 17:30 do 20:30.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Tobogganing</span><span lang="sk">Sánkovanie</span></h3>
+        <p lang="en">Semmering&rsquo;s three-kilometre run is the longest in eastern Austria, cut with tunnels and light effects, and lit in the evening. Stuhleck&rsquo;s is longer still at five kilometres, with sledges to rent at the mid-station — but it runs by daylight only.</p>
+        <p lang="sk">Trojkilometrová dráha na Semmeringu je najdlhšia vo východnom Rakúsku, s tunelmi a svetelnými efektmi, večer osvetlená. Tá na Stuhlecku je ešte dlhšia, päť kilometrov, so sánkami na požičanie na medzistanici — ale jazdí sa len za svetla.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Cross-country</span><span lang="sk">Bežky</span></h3>
+        <p lang="en">The Spital–Steinhaus–Semmering loop, 9.7 km and free, starts at the Stuhleck car park and passes below the house. For a bigger day, the Wechsel Panoramaloipe holds 116 km of trail that never drops below 1,000 m.</p>
+        <p lang="sk">Okruh Spital–Steinhaus–Semmering, 9,7 km a zadarmo, začína na parkovisku Stuhlecku a vedie popod dom. Na väčší deň má Wechsel Panoramaloipe 116 km tratí, ktoré nikdy neklesnú pod 1 000 m.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Ski touring &amp; winter walking</span><span lang="sk">Skialp a zimné prechádzky</span></h3>
+        <p lang="en">The classic tour climbs the Stuhleck piste from the car park to the summit hut — about a thousand metres of ascent in two and a half hours. A lift ticket is required and the pistes close at 17:00. Three prepared winter walking trails run through the spruce forest.</p>
+        <p lang="sk">Klasická túra stúpa po zjazdovke Stuhlecku z parkoviska až k vrcholovej chate — asi tisíc metrov prevýšenia za dve a pol hodiny. Vyžaduje sa lístok na vlek a zjazdovky sa zatvárajú o 17:00. Smrekovým lesom vedú tri upravené zimné chodníky.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Skating, and a day off</span><span lang="sk">Korčule a deň voľna</span></h3>
+        <p lang="en">There is a free ice rink in Steinhaus itself, a short walk down the hill. And when nobody wants to move: the pool, the sauna and the fire, all day. Therme Linsberg Asia is 35 minutes away if you want someone else&rsquo;s water — adults only, sixteen and over.</p>
+        <p lang="sk">Priamo v Steinhause je bezplatné klzisko, kúsok pešo dolu kopcom. A keď sa nikomu nechce nikam: bazén, sauna a krb, celý deň. Therme Linsberg Asia je 35 minút ďaleko, ak chcete cudziu vodu — len pre dospelých, od šestnástich.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="summer">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow"><span lang="en">Summer</span><span lang="sk">Leto</span></p>
+      <h2><span lang="en">May to October, and the pool is still warm.</span><span lang="sk">Od mája do októbra, a bazén je stále teplý.</span></h2>
+      <p class="lead" lang="en">At a thousand metres the summers stay civilised — it is reliably cooler up here than in the city you drove from.</p>
+      <p class="lead" lang="sk">V tisíc metroch je leto znesiteľné — je tu spoľahlivo chladnejšie než v meste, z ktorého ste prišli.</p>
+    </div>
+    <div class="topics rv">
+      <article class="topic">
+        <h3><span lang="en">Bike park</span><span lang="sk">Bike park</span></h3>
+        <p lang="en">Bikepark Semmering puts 18 km of trail down the Hirschenkogel in three grades — singletrail, northshore, jump lines and a slopestyle park, 350 m of vertical. Bikes and body armour are rented on site, and the gondola takes you back up. Mountain carts if the bikes are too much.</p>
+        <p lang="sk">Bikepark Semmering má 18 km tratí po Hirschenkogli v troch obtiažnostiach — singletrail, northshore, skokové línie a slopestyle park, 350 m prevýšenia. Bicykle aj chrániče sa požičiavajú na mieste a lanovka vás vyvezie späť. A ak sú bicykle veľa, sú tu horské kolobežky.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Up the Stuhleck on foot</span><span lang="sk">Na Stuhleck pešo</span></h3>
+        <p lang="en">Four hours from the village to the summit at 1,782 m, past the Friedrichhütte at 1,307 m. If four hours is not the plan, the toll road from the Pfaffensattel drives you to 1,780 m for five euros and you walk the last stretch to the summit cross.</p>
+        <p lang="sk">Štyri hodiny z dediny na vrchol v 1 782 m, popri Friedrichhütte v 1 307 m. A ak štyri hodiny nie sú v pláne, platená cesta z Pfaffensattelu vás za päť eur vyvezie do 1 780 m a na vrcholový kríž vyjdete kúsok pešo.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">The big mountains</span><span lang="sk">Veľké hory</span></h3>
+        <p lang="en">The Rax cable car — Austria&rsquo;s first, a hundred years old this year — is 25 minutes away and lifts you to 1,546 m and a plateau of trails. The Schneeberg rack railway climbs to 1,800 m, fifty minutes from the door. Both are proper days out.</p>
+        <p lang="sk">Lanovka na Rax — prvá v Rakúsku, tento rok storočná — je 25 minút ďaleko a vyvezie vás do 1 546 m na náhornú plošinu plnú chodníkov. Ozubnicová železnica na Schneeberg stúpa do 1 800 m, päťdesiat minút od dverí. Oboje je na celý deň.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Via ferrata</span><span lang="sk">Ferraty</span></h3>
+        <p lang="en">The Rax–Schneeberg group holds routes across the whole range of difficulty — the Teufelsbadstubensteig and Alpenvereinssteig at grade B for a first time, the Hans-von-Haid-Steig at D, the Königschusswand at D/E when you want to be honestly frightened.</p>
+        <p lang="sk">Skupina Rax–Schneeberg ponúka ferraty naprieč celou škálou obtiažnosti — Teufelsbadstubensteig a Alpenvereinssteig v stupni B na prvý raz, Hans-von-Haid-Steig v D a Königschusswand v D/E, keď sa chcete poriadne báť.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">On a road bike</span><span lang="sk">Na cestnom bicykli</span></h3>
+        <p lang="en">The Semmering Pass starts at the end of the drive: five kilometres at 3.4 % from Steinhaus to the top. The far side is longer and steeper, and the scenic Adlitzgräben ramp runs beneath the old railway viaducts. Traffic is light — the motorway tunnels underneath.</p>
+        <p lang="sk">Semmeringský priesmyk sa začína na konci príjazdovej cesty: päť kilometrov s priemerom 3,4 % zo Steinhausu na vrchol. Druhá strana je dlhšia a strmšia a malebná rampa cez Adlitzgräben vedie popod staré železničné viadukty. Premávky je málo — diaľnica ide tunelom pod tým.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">The UNESCO railway</span><span lang="sk">Železnica na zozname UNESCO</span></h3>
+        <p lang="en">The Semmering Railway of 1854 was the first mountain railway in the world, and the first to be given World Heritage status: 41 km, sixteen viaducts, fifteen tunnels. A marked footpath follows it — twenty kilometres from Semmering to Payerbach, with the viewpoint that used to be printed on the twenty-schilling note.</p>
+        <p lang="sk">Semmeringská železnica z roku 1854 bola prvou horskou železnicou na svete a prvou zapísanou do svetového dedičstva: 41 km, šestnásť viaduktov, pätnásť tunelov. Vedie popri nej značený chodník — dvadsať kilometrov zo Semmeringu do Payerbachu, s výhľadom, ktorý býval na dvadsaťšilingovej bankovke.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Water, honestly</span><span lang="sk">Voda, na rovinu</span></h3>
+        <p lang="en">There is no bathing lake nearby — that is the one thing this valley does not have. The pool downstairs is heated all year, which is rather the point. If the children want slides, Aqua Nova in Wiener Neustadt is 40 minutes; Stubenbergsee, the warmest lake in Austria, is an hour and a half.</p>
+        <p lang="sk">Kúpacie jazero v okolí nie je — to je jediné, čo tomuto údoliu chýba. Bazén dole je vyhrievaný po celý rok, o to práve ide. Ak deti chcú šmykľavky, Aqua Nova vo Wiener Neustadt je 40 minút; Stubenbergsee, najteplejšie jazero v Rakúsku, hodinu a pol.</p>
+      </article>
+      <article class="topic">
+        <h3><span lang="en">Slow days</span><span lang="sk">Pomalé dni</span></h3>
+        <p lang="en">The Hirschenkogel gondola runs daily through high summer for walkers, with a panorama restaurant, an observation tower and a high ropes course at the top. The Sonnwendstein circuit from the pass is 11.5 km and about four hours, and you can ride the gondola down if the legs have had enough.</p>
+        <p lang="sk">Lanovka na Hirschenkogel jazdí vo vrcholnom lete denne aj pre peších, hore je panoramatická reštaurácia, rozhľadňa a lanový park. Okruh cez Sonnwendstein z priesmyku má 11,5 km a asi štyri hodiny — a ak toho nohy majú dosť, dole sa dá zviezť lanovkou.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="arrival">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow"><span lang="en">Getting here</span><span lang="sk">Cesta sem</span></p>
+      <h2><span lang="en">An hour and a half from Bratislava.</span><span lang="sk">Hodina a pol z Bratislavy.</span></h2>
+      <p class="lead" lang="en">About 145 km door to door: out on the D4, along the A6 and through Burgenland on the S31 and S4, then the A2 and the S6, and off at Spital am Semmering. No city to cross and no border queue. The motorway exit is under a kilometre from the house, the railway station is in the next village, and the bus stops five hundred metres down the road.</p>
+      <p class="lead" lang="sk">Približne 145 km od dverí k dverám: po D4, ďalej po A6 a cez Burgenland po S31 a S4, potom na A2 a S6 a zjazd Spital am Semmering. Žiadne mesto na prejazd, žiadny rad na hranici. Zjazd z diaľnice je necelý kilometer od domu, vlaková stanica v susednej obci a autobus stojí päťsto metrov po ceste.</p>
+      <div class="facts">
+        <div class="fact"><b>1 h 30</b><span lang="en">From Bratislava &middot; 145 km</span><span lang="sk">Z Bratislavy &middot; 145 km</span></div>
+        <div class="fact"><b>1 h 15</b><span lang="en">From Vienna &middot; 93 km</span><span lang="sk">Z Viedne &middot; 93 km</span></div>
+        <div class="fact"><b>1 h 30</b><span lang="en">From Graz &middot; 112 km</span><span lang="sk">Z Grazu &middot; 112 km</span></div>
+        <div class="fact"><b>0,7 km</b><span lang="en">To the motorway</span><span lang="sk">Na diaľnicu</span></div>
+        <div class="fact"><b>5</b><span lang="en">Parking spaces</span><span lang="sk">Parkovacích miest</span></div>
+      </div>
+      <div class="caution">
+        <p><strong><span lang="en">One thing about winter</span><span lang="sk">Jedna vec o zime</span></strong>
+        <span lang="en">The road up to the house is steep and not always cleared overnight. After fresh snow, snow chains are strongly recommended and a 4×4 makes life easier. If you arrive late and are not sure of it, park at the bottom — the bags can wait until morning.</span>
+        <span lang="sk">Cesta k domu je strmá a cez noc nie je vždy odhrnutá. Po čerstvom snehu dôrazne odporúčame reťaze a 4×4 uľahčí život. Ak prídete neskoro a nie ste si istí, zaparkujte dole — batožina počká do rána.</span></p>
+      </div>
+
+      <div class="practical">
+        <div class="pcard">
+          <h3><span lang="en">The address</span><span lang="sk">Adresa</span></h3>
+          <p><span class="mono">Stuhleckblick 25</span>
+          8685 Steinhaus am Semmering<br>Steiermark, Austria
+          <small>47.6328&deg; N &middot; 15.7740&deg; E &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=47.6328,15.7740" target="_blank" rel="noopener"><span lang="en">Open in Maps</span><span lang="sk">Otvoriť v mapách</span></a></small></p>
+        </div>
+        <div class="pcard">
+          <h3><span lang="en">Wi-Fi in the house</span><span lang="sk">Wi-Fi v dome</span></h3>
+          <p><span class="mono">E25 / wunderbar</span>
+          <small><span lang="en">Network and password &middot; fast fibre throughout</span><span lang="sk">Sieť a heslo &middot; rýchly optický internet v celom dome</span></small></p>
+        </div>
+        <div class="pcard">
+          <h3><span lang="en">Once you are in</span><span lang="sk">Keď ste vnútri</span></h3>
+          <p><span lang="en">Shoes off inside, towels on the bed when you leave. Otherwise: make yourself at home.</span><span lang="sk">Vnútri bez topánok, uteráky na posteľ pri odchode. Inak: cíťte sa ako doma.</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tour rv" style="margin-top:clamp(56px,8vw,96px)">
+      <p class="eyebrow" style="justify-content:center"><span lang="en">Walk through it first</span><span lang="sk">Najprv si ho prejdite</span></p>
+      <h2 style="margin-inline:auto"><span lang="en">The whole house, in 3D.</span><span lang="sk">Celý dom, v 3D.</span></h2>
+      <p class="lead" lang="en">A Matterport scan of every room. Open it on a phone or a laptop and wander at your own pace — it is the honest version, furniture and all.</p>
+      <p class="lead" lang="sk">Matterport sken každej miestnosti. Otvorte si ho v mobile alebo notebooku a prejdite sa vlastným tempom — je to poctivá verzia, aj s nábytkom.</p>
+      <a class="btn" href="https://my.matterport.com/show/?m=4iwwPJ1z2Xo" target="_blank" rel="noopener">
+        <span lang="en">Open the 3D tour</span><span lang="sk">Otvoriť 3D prehliadku</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="calendar">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow"><span lang="en">Free dates</span><span lang="sk">Voľné termíny</span></p>
+      <h2><span lang="en">When the house is free.</span><span lang="sk">Kedy je dom voľný.</span></h2>
+      <p class="lead" lang="en">Anything marked in the calendar is already taken. Everything else is open — so you can see for yourself before you ask.</p>
+      <p class="lead" lang="sk">Čo je v kalendári označené, je už obsadené. Všetko ostatné je voľné — takže sa môžete pozrieť skôr, než sa spýtate.</p>
+      <div class="calwrap" id="calwrap">
+        <div class="cal" id="cal" style="display:none">
+          <div class="cal-head">
+            <p class="cal-range" id="calRange"></p>
+            <div class="cal-nav">
+              <button type="button" id="calPrev" aria-label="Earlier months"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg></button>
+              <button type="button" id="calNext" aria-label="Later months"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg></button>
+            </div>
+          </div>
+          <div class="cal-months" id="calMonths"></div>
+        </div>
+      </div>
+      <div class="callegend">
+        <span><i></i><span lang="en">Taken</span><span lang="sk">Obsadené</span></span>
+        <span><i class="free"></i><span lang="en">Free</span><span lang="sk">Voľné</span></span>
+        <span><i class="hold"></i><span lang="en">Slovak holiday</span><span lang="sk">Slovenský sviatok / prázdniny</span></span>
+        <span><i class="busyd"></i><span lang="en">Local school ski week</span><span lang="sk">Štajerské lyžiarske prázdniny</span></span>
+      </div>
+
+      <details class="hol" id="holBox">
+        <summary><span lang="en">School holidays and ski weeks, ten years ahead</span><span lang="sk">Prázdniny a lyžiarske týždne na desať rokov dopredu</span></summary>
+        <div class="holwrap"><table class="holtab" id="holTab"></table></div>
+        <p class="holnote" lang="en">Slovak school holidays are published by the Ministry only two school years ahead — dates from 2029 onwards are marked <b>~</b> and are worked out from the pattern the Ministry has followed every year since 2019 (spring break starts the third Monday of February, with the three regional groups rotating). Treat them as a guide, not a booking. The Steiermark column is fixed by Austrian law, so it is exact for every year.</p>
+        <p class="holnote" lang="sk">Termíny slovenských školských prázdnin ministerstvo zverejňuje len dva školské roky dopredu — dátumy od roku 2029 sú označené <b>~</b> a sú odvodené zo vzorca, ktorý ministerstvo dodržiava každý rok od 2019 (jarné prázdniny sa začínajú tretí februárový pondelok, tri krajské skupiny sa striedajú). Berte ich orientačne. Stĺpec Štajersko určuje rakúsky zákon, takže platí presne pre každý rok.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<figure class="plate rv">
+  <img src="img/grill-terrace.jpg" loading="lazy" alt="The terrace grill with the Semmering mountains beyond.">
+  <figcaption><span lang="en">Plate II &middot; The terrace, looking south</span><span lang="sk">Tabuľa II &middot; Terasa, pohľad na juh</span></figcaption>
+</figure>
+
+<section class="section closing">
+  <div class="wrap">
+    <div class="rv">
+      <h2><span lang="en">Come and <em>stay</em>.</span><span lang="sk">Príďte a <em>zostaňte</em>.</span></h2>
+      <p class="lead" lang="en">Pick a weekend or pick a week. Bring the children, bring the dog, bring your people. Whatever the season, the mountains will be here and the pool will be warm.</p>
+      <p class="lead" lang="sk">Vyberte si víkend alebo celý týždeň. Vezmite deti, vezmite psa, vezmite svojich ľudí. V ktoromkoľvek ročnom období tu hory budú a bazén bude teplý.</p>
+      <p class="lead happy" lang="en">This is our happy place. We think it is a genuinely special corner of the world, and the best part of having it is being able to share it with friends.</p>
+      <p class="lead happy" lang="sk">Toto je naše happy place. Považujeme toto miesto za skutočne výnimočné a to najlepšie na ňom je, že ho môžeme zdieľať s priateľmi.</p>
+      <div class="postscript">
+        <p lang="en">This is not a public listing, so you will not find a booking form or contact details on this page. If you are reading it, you already have Juraj&rsquo;s number.</p>
+        <p lang="sk">Toto nie je verejná ponuka, takže na tejto stránke nenájdete rezervačný formulár ani kontakty. Ak ju čítate, Jurajovo číslo už máte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <span>Villa E25 &middot; Steinhaus am Semmering &middot; Steiermark &middot; AT</span>
+    <span lang="en">Private residence &middot; not available for commercial rental</span>
+    <span lang="sk">Súkromný dom &middot; nie je na komerčný prenájom</span>
+  </div>
+</footer>
+
+</div>
+<script>
+(function(){
+  var site=document.getElementById('site');
+  var btns=site.querySelectorAll('.lang button');
+  function setLang(l){
+    site.setAttribute('data-lang',l);
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.set===l));});
+    try{localStorage.setItem('e25-lang',l);}catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set);});});
+  try{
+    var saved=localStorage.getItem('e25-lang');
+    if(saved==='sk'||saved==='en'){setLang(saved);}
+    else if((navigator.language||'').toLowerCase().indexOf('sk')===0){setLang('sk');}
+  }catch(e){}
+
+
+  /* ===============================================================
+     AVAILABILITY CALENDAR
+     ---------------------------------------------------------------
+     The calendar ALWAYS draws. It tries to read live dates in this
+     order and uses the first one that answers:
+
+       1. ics.php on this same server  (best — no browser restrictions)
+       2. Google Calendar API, if you paste a key below
+       3. Google's public .ics feed directly  (always blocked by Google —
+          confirmed: that endpoint sends no CORS header. Kept only in case
+          Google ever changes its mind.)
+       4. the E25_BOOKED list right here in this file
+
+     FOR NEAR-INSTANT UPDATES put your API key in ics.php, not here.
+     There it stays on your server; a key written into this file is
+     visible to anyone who views the page source.
+
+     So even with no internet source at all, the calendar still shows
+     and you can block dates by hand in the list below.
+     =============================================================== */
+
+  /* Booked dates typed by hand. Format: ["first night","last night","label"]
+     The label is optional and only shows as a tooltip.
+     Example:  ["2026-12-27","2027-01-02","Ski week"],                        */
+  var E25_BOOKED = [
+    // Copied from your Google Calendar on 23 Aug 2026 so the page is never blank.
+    // Once ics.php is on the server these are ignored and the live feed wins.
+    ["2026-12-27","2027-01-04"],   // "JP - Silvester E25"
+  ];
+
+  /* Your public Google Calendar ID. Empty = hide the whole section. */
+  var E25_CALENDAR_ID  = "44902e7f5bd40973d3b0b790a16b0a3ff71838b79903b77756726e6cc9207a8d@group.calendar.google.com";
+
+  /* Path to ics.php on your own server. Leave as is if you uploaded it
+     next to index.html. Set to "" to skip it.                                */
+  var E25_ICS_PROXY = "ics.php";
+
+  /* Optional Google API key for the browser to use directly. Normally leave
+     this EMPTY and put the key in ics.php instead — see the note above.      */
+  var E25_CALENDAR_KEY = "";
+
+  var calSection=document.getElementById('calendar');
+  var navCal=document.getElementById('navcal');
+
+  if(!calSection){ /* nothing to do */ }
+  else{
+    var MONTHS_SHOWN=6, offset=0, taken={}, source='none',
+        calEl=document.getElementById('cal'),
+        monthsEl=document.getElementById('calMonths'),
+        rangeEl=document.getElementById('calRange'),
+        prevBtn=document.getElementById('calPrev'),
+        nextBtn=document.getElementById('calNext');
+
+    function loc(){ return site.getAttribute('data-lang')==='sk' ? 'sk-SK' : 'en-GB'; }
+    function iso(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+    function firstOfMonth(n){ var t=new Date(); return new Date(t.getFullYear(), t.getMonth()+n, 1); }
+
+    /* mark [from .. toExclusive) */
+    function markRange(fromStr,toExclusive,label){
+      var d=new Date(fromStr+'T00:00:00'), e=new Date(toExclusive+'T00:00:00'), guard=0;
+      while(d<e && guard++<800){ taken[iso(d)]=label||true; d.setDate(d.getDate()+1); }
+    }
+    /* mark inclusive first..last, the way a person writes a booking */
+    function markInclusive(a,b,label){
+      var e=new Date(b+'T00:00:00'); e.setDate(e.getDate()+1); markRange(a,iso(e),label);
+    }
+
+
+    /* ===== Slovak / Austrian holiday engine =========================
+       Everything below is computed, not typed in, so it keeps working
+       for as many years ahead as anyone scrolls.
+
+       EXACT for all years:
+         - Slovak public holidays (fixed dates + Easter)
+         - Steiermark Semesterferien: Austrian Schulzeitgesetz fixes it to
+           the third Monday of February (Wien/NO take the first Monday)
+       PUBLISHED by the Ministry only to school year 2027/28, computed
+       from the established pattern after that (flagged with ~):
+         - jarne prazdniny, third Monday of February, three regional
+           groups rotating on a three-year cycle. Bratislava/Nitra/Trnava
+           take week 0 when year%3==1, week 1 when %3==0, week 2 when %3==2.
+           That reproduces every published year from 2019 to 2028.
+         - vianocne 23 Dec - 7 Jan, velkonocne Maundy Thursday - Tuesday
+       ================================================================= */
+    var SK_PUBLISHED_TO = 2028;   /* last February the Ministry has published */
+
+    function easter(y){
+      var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,
+          f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,
+          i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),
+          mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;
+      return new Date(y,mo-1,da);
+    }
+    function plus(d,n){ var x=new Date(d.getTime()); x.setDate(x.getDate()+n); return x; }
+    function nthMonday(y,monthIdx,n){
+      var d=new Date(y,monthIdx,1), add=(1-d.getDay()+7)%7;
+      return new Date(y,monthIdx,1+add+(n-1)*7);
+    }
+    function skSpringBreak(y){            /* Bratislava / Nitra / Trnava */
+      var r=y%3, wk = r===1?0 : (r===0?1:2);
+      var mon=plus(nthMonday(y,1,3), wk*7);
+      return {from:mon, to:plus(mon,4), est:y>SK_PUBLISHED_TO};
+    }
+    function stmkSkiWeek(y){              /* Steiermark Semesterferien */
+      var mon=nthMonday(y,1,3);
+      return {from:plus(mon,-2), to:plus(mon,6), mon:mon, fri:plus(mon,4)};
+    }
+    function skEasterBreak(y){ var e=easter(y); return {from:plus(e,-3), to:plus(e,2), est:y>SK_PUBLISHED_TO}; }
+
+    /* every marked Slovak day in a given year, as {iso: label} */
+    function skHolidayMap(y){
+      var m={}, e=easter(y);
+      function tag(d,label){ m[iso(d)] = m[iso(d)] ? m[iso(d)]+' / '+label : label; }
+      function span(a,b,label){ var d=new Date(a.getTime()); while(d<=b){ tag(d,label); d=plus(d,1);} }
+      var SK = site.getAttribute('data-lang')==='sk';
+      tag(new Date(y,0,1),  SK?'Nový rok':'New Year');
+      tag(new Date(y,0,6),  SK?'Traja králi':'Epiphany');
+      tag(plus(e,-2),       SK?'Veľký piatok':'Good Friday');
+      tag(plus(e,1),        SK?'Veľkonočný pondelok':'Easter Monday');
+      tag(new Date(y,11,24),SK?'Štedrý deň':'Christmas Eve');
+      tag(new Date(y,11,25),SK?'1. sviatok vianočný':'Christmas Day');
+      tag(new Date(y,11,26),SK?'2. sviatok vianočný':'St Stephen&rsquo;s Day');
+      var sb=skSpringBreak(y), eb=skEasterBreak(y), sfx=(sb.est?' ~':'');
+      span(sb.from, sb.to, (SK?'Jarné prázdniny BA/NR/TT':'Slovak spring school break')+sfx);
+      span(eb.from, eb.to, (SK?'Veľkonočné prázdniny':'Slovak Easter break')+sfx);
+      span(new Date(y-1,11,23), new Date(y,0,7), (SK?'Vianočné prázdniny':'Slovak Christmas break')+(y>SK_PUBLISHED_TO?' ~':''));
+      span(new Date(y,11,23), new Date(y+1,0,7), (SK?'Vianočné prázdniny':'Slovak Christmas break')+(y+1>SK_PUBLISHED_TO?' ~':''));
+      return m;
+    }
+    var holCache={}, busyCache={};
+    function holFor(y){ if(!holCache[y]) holCache[y]=skHolidayMap(y); return holCache[y]; }
+    function busyFor(y){
+      if(!busyCache[y]){
+        var w=stmkSkiWeek(y), m={}, d=new Date(w.from.getTime());
+        while(d<=w.to){ m[iso(d)]=true; d=plus(d,1); }
+        busyCache[y]=m;
+      }
+      return busyCache[y];
+    }
+    function fmtRange(a,b,l){
+      var sameMonth=a.getMonth()===b.getMonth();
+      var dm=new Intl.DateTimeFormat(l,{day:'numeric',month:'short'});
+      var d=new Intl.DateTimeFormat(l,{day:'numeric'});
+      return (sameMonth? d.format(a) : dm.format(a)) + ' – ' + dm.format(b);
+    }
+    function buildHolidayTable(){
+      var tab=document.getElementById('holTab'); if(!tab) return;
+      var SK = site.getAttribute('data-lang')==='sk', l = SK?'sk-SK':'en-GB';
+      var y0=new Date().getFullYear()+1, rows='';
+      rows+='<thead><tr><th>'+(SK?'Rok':'Year')+'</th><th>'+(SK?'Jarné prázdniny BA/NR/TT':'Slovak ski week (BA/NR/TT)')
+           +'</th><th>'+(SK?'Štajersko – prázdniny':'Steiermark ski week')+'</th><th>'
+           +(SK?'Veľká noc':'Slovak Easter break')+'</th></tr></thead><tbody>';
+      for(var i=0;i<10;i++){
+        var y=y0+i, sb=skSpringBreak(y), st=stmkSkiWeek(y), eb=skEasterBreak(y);
+        var clash = iso(sb.from)===iso(st.mon);
+        rows+='<tr'+(clash?' class="clash"':'')+'><td class="yr">'+y+'</td>'
+            + '<td'+(sb.est?' class="est"':'')+'>'+fmtRange(sb.from,sb.to,l)+(clash?' <span class="star" title="'+(SK?'Rovnaký týždeň ako štajerské prázdniny – zjazdovky budú plné':'Same week as the Steiermark break — the slopes will be full')+'">★</span>':'')+'</td>'
+            + '<td>'+fmtRange(st.mon,st.fri,l)+'</td>'
+            + '<td'+(eb.est?' class="est"':'')+'>'+fmtRange(eb.from,eb.to,l)+'</td></tr>';
+      }
+      tab.innerHTML=rows+'</tbody>';
+    }
+
+    function render(){
+      var today=new Date(); today.setHours(0,0,0,0);
+      var todayKey=iso(today);
+      var start=firstOfMonth(offset), endM=firstOfMonth(offset+MONTHS_SHOWN-1);
+      var fmt=new Intl.DateTimeFormat(loc(),{month:'long'});
+      var fmtY=new Intl.DateTimeFormat(loc(),{month:'long',year:'numeric'});
+      rangeEl.textContent=fmtY.format(start)+' — '+fmtY.format(endM);
+      prevBtn.disabled = offset<=0;
+      monthsEl.innerHTML='';
+      var dowFmt=new Intl.DateTimeFormat(loc(),{weekday:'short'});
+      for(var m=0;m<MONTHS_SHOWN;m++){
+        var d0=firstOfMonth(offset+m), y=d0.getFullYear(), mo=d0.getMonth();
+        var box=document.createElement('div'); box.className='cal-m';
+        var h=document.createElement('h4'); h.textContent=fmt.format(d0);
+        var yr=document.createElement('span'); yr.textContent=' '+y; h.appendChild(yr);
+        box.appendChild(h);
+        var grid=document.createElement('div'); grid.className='cal-grid';
+        for(var w=0;w<7;w++){
+          var ref=new Date(2024,0,1+w); /* 2024-01-01 was a Monday */
+          var dw=document.createElement('div'); dw.className='cal-dow';
+          dw.textContent=dowFmt.format(ref).replace('.','').slice(0,2);
+          grid.appendChild(dw);
+        }
+        var lead=(new Date(y,mo,1).getDay()+6)%7;
+        for(var pd=0;pd<lead;pd++){ var pad=document.createElement('div'); pad.className='cal-d pad'; pad.textContent='.'; grid.appendChild(pad); }
+        var days=new Date(y,mo+1,0).getDate();
+        for(var dd=1;dd<=days;dd++){
+          var cur=new Date(y,mo,dd), key=iso(cur);
+          var cell=document.createElement('div'); cell.className='cal-d'; cell.textContent=dd;
+          if(cur<today) cell.classList.add('past');
+          if(key===todayKey) cell.classList.add('today');
+          var hol=holFor(y)[key], busy=busyFor(y)[key], tips=[];
+          if(taken[key]){ cell.classList.add('taken'); if(taken[key]!==true) tips.push(taken[key]); }
+          if(hol){ cell.classList.add('hol'); tips.push(hol); }
+          if(busy){ cell.classList.add('busy'); tips.push(loc()==='sk-SK'?'Štajerské lyžiarske prázdniny':'Steiermark school ski week'); }
+          if(tips.length) cell.title=tips.join(' · ');
+          grid.appendChild(cell);
+        }
+        box.appendChild(grid); monthsEl.appendChild(box);
+      }
+      holCache={}; buildHolidayTable();
+      calEl.style.display='';
+    }
+
+    /* ---------- parse an .ics text into `taken` ---------- */
+    function parseIcs(txt){
+      if(!txt || txt.indexOf('BEGIN:VCALENDAR')<0) throw new Error('not an ics feed');
+      var lines=txt.replace(/\r\n[ \t]/g,'').replace(/\n[ \t]/g,'').split(/\r?\n/);
+      var ev=null, count=0;
+      function ymd(v){ return v.slice(0,4)+'-'+v.slice(4,6)+'-'+v.slice(6,8); }
+      for(var i=0;i<lines.length;i++){
+        var l=lines[i];
+        if(l.indexOf('BEGIN:VEVENT')===0){ ev={}; continue; }
+        if(l.indexOf('END:VEVENT')===0){
+          if(ev && ev.s && ev.status!=='CANCELLED'){
+            if(ev.allday){ markRange(ev.s, ev.e||ev.s, ev.sum); }
+            else { markInclusive(ev.s, ev.e||ev.s, ev.sum); }
+            count++;
+          }
+          ev=null; continue;
+        }
+        if(!ev) continue;
+        var c=l.indexOf(':'); if(c<0) continue;
+        var k=l.slice(0,c), v=l.slice(c+1).trim();
+        if(k.indexOf('DTSTART')===0){ ev.s=ymd(v); ev.allday=(k.indexOf('VALUE=DATE')>-1 && k.indexOf('DATE-TIME')<0); }
+        else if(k.indexOf('DTEND')===0){ ev.e=ymd(v); }
+        else if(k.indexOf('SUMMARY')===0){ ev.sum=v.replace(/\\,/g,',').replace(/\\n/gi,' '); }
+        else if(k.indexOf('STATUS')===0){ ev.status=v; }
+      }
+      if(!count && txt.indexOf('BEGIN:VEVENT')>-1) throw new Error('no usable events');
+      return count;
+    }
+
+    var attempts=[];
+    function tryFetch(url,handler,name){
+      var t0=Date.now();
+      return fetch(url,{credentials:'omit'})
+        .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
+        .then(function(t){
+          var n=handler(t);
+          source=name;
+          attempts.push({route:name,ok:true,detail:(n||0)+' entries, '+(Date.now()-t0)+' ms',url:url});
+        })
+        .catch(function(e){
+          attempts.push({route:name,ok:false,detail:e.message,url:url});
+          throw e;
+        });
+    }
+
+    function fromProxy(){
+      if(!E25_ICS_PROXY){ attempts.push({route:'ics.php',ok:false,detail:'skipped — E25_ICS_PROXY is empty'}); return Promise.reject(new Error('no proxy')); }
+      return tryFetch(E25_ICS_PROXY+'?v='+Math.floor(Date.now()/900000), parseIcs, 'ics.php');
+    }
+    function fromGoogleIcs(){
+      if(!E25_CALENDAR_ID){ attempts.push({route:'google-ics',ok:false,detail:'skipped — no calendar ID'}); return Promise.reject(new Error('no id')); }
+      return tryFetch('https://calendar.google.com/calendar/ical/'+encodeURIComponent(E25_CALENDAR_ID)+'/public/basic.ics',
+                      parseIcs, 'google-ics');
+    }
+    function fromApi(){
+      if(!E25_CALENDAR_ID || !E25_CALENDAR_KEY){ attempts.push({route:'google-api',ok:false,detail:'skipped — no API key set'}); return Promise.reject(new Error('no key')); }
+      var from=firstOfMonth(-1).toISOString(), to=firstOfMonth(30).toISOString();
+      var url='https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(E25_CALENDAR_ID)
+        +'/events?key='+encodeURIComponent(E25_CALENDAR_KEY)
+        +'&singleEvents=true&orderBy=startTime&maxResults=2500'
+        +'&timeMin='+encodeURIComponent(from)+'&timeMax='+encodeURIComponent(to);
+      return tryFetch(url,function(t){
+        var data=JSON.parse(t), n=0;
+        (data.items||[]).forEach(function(ev){
+          n++;
+          if(ev.status==='cancelled') return;
+          var label=ev.summary||'';
+          if(ev.start&&ev.start.date){ markRange(ev.start.date,(ev.end&&ev.end.date)||ev.start.date,label); }
+          else if(ev.start&&ev.start.dateTime){
+            var sd=new Date(ev.start.dateTime), ed=new Date((ev.end&&ev.end.dateTime)||ev.start.dateTime);
+            markInclusive(iso(new Date(sd.getFullYear(),sd.getMonth(),sd.getDate())),
+                          iso(new Date(ed.getFullYear(),ed.getMonth(),ed.getDate())),label);
+          }
+        });
+        return n;
+      },'google-api');
+    }
+    function fromList(){
+      E25_BOOKED.forEach(function(b){ if(b&&b[0]) markInclusive(b[0], b[1]||b[0], b[2]||''); });
+      source='built-in list';
+    }
+
+    function report(){
+      window.E25_CAL_SOURCE=source;
+      window.E25_CAL_ATTEMPTS=attempts;
+      render();
+
+      var live = (source!=='built-in list');
+      var old=document.getElementById('calWarn'); if(old) old.remove();
+      if(!live && !Object.keys(taken).length){
+        var w=document.createElement('p'); w.className='cal-warn'; w.id='calWarn';
+        w.innerHTML = site.getAttribute('data-lang')==='sk'
+          ? 'Živý kalendár sa teraz nepodarilo načítať, takže tu zatiaľ nie sú označené žiadne termíny. Ak ste Juraj: otvorte túto stránku s <code>?debug</code> na konci adresy a uvidíte prečo.'
+          : 'The live calendar could not be reached just now, so no dates are marked here yet. If you are Juraj: add <code>?debug</code> to the end of this page&rsquo;s address to see exactly why.';
+        document.querySelector('#calendar .callegend').insertAdjacentElement('beforebegin',w);
+      }
+
+      if(/[?&]debug/i.test(location.search)){
+        var d=document.createElement('div'); d.className='cal-dbg';
+        var html='<b>Calendar diagnostics</b><br>page origin: '+(location.origin||'file://')+'<br>winner: <b>'+source+'</b> &middot; '+Object.keys(taken).length+' days marked<br><br>';
+        attempts.forEach(function(a){
+          html+='<span class="'+(a.ok?'y':'n')+'">'+(a.ok?'PASS':'FAIL')+'</span> &nbsp;<b>'+a.route+'</b> — '+a.detail+'<br>';
+          if(a.url) html+='&nbsp;&nbsp;&nbsp;&nbsp;<span style="opacity:.6">'+a.url.replace(/&/g,'&amp;').slice(0,150)+'</span><br>';
+        });
+        html+='<br>';
+        if(source!=='built-in list'){ html+='Everything is fine — the calendar is live.'; }
+        else if(location.protocol==='file:'){ html+='You are opening this file from your own disk. <b>ics.php cannot run</b> and Google blocks the direct read, so nothing can load here. Test on e25.at instead.'; }
+        else if(attempts[0]&&/HTTP 404/.test(attempts[0].detail)){ html+='<b>ics.php is not on the server.</b> Upload it next to index.html.'; }
+        else if(attempts[0]&&/HTTP 5/.test(attempts[0].detail)){ html+='<b>ics.php ran but Google refused.</b> The calendar is probably not shared publicly: Google Calendar &rarr; Settings &rarr; this calendar &rarr; Access permissions &rarr; tick &ldquo;Make available to public&rdquo;.'; }
+        else { html+='No route reached the calendar. Check in this order: is the calendar public, is ics.php uploaded, is PHP enabled.'; }
+        d.innerHTML=html;
+        document.querySelector('#calendar .callegend').insertAdjacentElement('afterend',d);
+      }
+    }
+
+    /* draw immediately from the hand-typed list, then upgrade if a feed answers */
+    fromList();
+    render();
+
+    fromProxy()
+      .catch(function(){ taken={}; return fromApi(); })
+      .catch(function(){ taken={}; return fromGoogleIcs(); })
+      .catch(function(){ taken={}; fromList(); })
+      .then(report, report);
+
+    prevBtn.addEventListener('click',function(){ if(offset>0){ offset-=MONTHS_SHOWN; if(offset<0) offset=0; render(); } });
+    nextBtn.addEventListener('click',function(){ offset+=MONTHS_SHOWN; render(); });
+    site.querySelectorAll('.lang button').forEach(function(b){
+      b.addEventListener('click',function(){ render(); });
+    });
+  }
+
+  var items=site.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    items.forEach(function(el){el.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    items.forEach(function(el){io.observe(el);});
+  }
+})();
+</script>
+</body>
+</html>

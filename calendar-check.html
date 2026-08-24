@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E25 Calendar Check</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<style>
+:root{--ground:#F3F5F1;--ground-2:#E8EBE4;--ink:#19201B;--ink-soft:#4B564E;--ink-faint:#7C877E;
+  --rule:#CBD1C7;--rule-strong:#A9B2A6;--accent:#8E6529;--ok:#2D6A4A;--bad:#8C3A2E;--wait:#8E6529}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111613;--ground-2:#181F1A;--ink:#ECEFE8;--ink-soft:#9EA99F;--ink-faint:#758077;
+  --rule:#2B342D;--rule-strong:#3D4941;--accent:#C79A5C;--ok:#6FBF93;--bad:#E08C7D;--wait:#C79A5C}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Jost","Avenir Next",system-ui,sans-serif;
+  font-size:17px;line-height:1.6}
+.wrap{max-width:44rem;margin-inline:auto;padding:clamp(28px,6vw,64px) clamp(20px,5vw,40px)}
+h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.05;margin:0 0 .6rem;letter-spacing:-.025em;font-weight:500}
+.sub{color:var(--ink-soft);margin:0 0 2.4rem;max-width:32rem}
+.test{border-top:1px solid var(--rule);padding:1.3rem 0}
+.test:last-of-type{border-bottom:1px solid var(--rule)}
+.row{display:flex;align-items:baseline;gap:.9rem}
+.badge{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  padding:.32em .7em;border:1px solid currentColor;flex:none;white-space:nowrap}
+.badge.wait{color:var(--wait)}.badge.ok{color:var(--ok)}.badge.bad{color:var(--bad)}
+h2{font-size:1.06rem;margin:0;font-weight:500;letter-spacing:-.01em}
+.detail{margin:.55rem 0 0;color:var(--ink-soft);font-size:.94rem}
+.detail code{background:var(--ground-2);padding:.1em .4em;font-size:.86em}
+.verdict{margin-top:2.4rem;padding:1.4rem 1.6rem;background:var(--ground-2);border-left:2px solid var(--accent)}
+.verdict h3{margin:0 0 .6rem;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.verdict p{margin:0 0 .8rem}.verdict p:last-child{margin:0}
+ol{padding-left:1.2rem;color:var(--ink-soft)}li{margin-bottom:.5rem}
+a{color:var(--accent)}
+.keyrow{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap}
+.keyrow input{font:inherit;font-size:.9rem;padding:.6rem .8rem;border:1px solid var(--rule-strong);
+  background:var(--ground);color:var(--ink);flex:1;min-width:14rem}
+.keyrow button{font:inherit;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  padding:.6rem 1.1rem;border:1px solid var(--ink);background:var(--ink);color:var(--ground);cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Calendar check</h1>
+  <p class="sub">This page tries every way the website can read your Google Calendar and tells you which ones work. Open it on <strong>e25.at</strong> for the real answer — opened from your own disk, test 1 cannot pass.</p>
+
+  <div class="test" id="t1">
+    <div class="row"><span class="badge wait">testing</span><h2>1 &middot; ics.php on your own server</h2></div>
+    <p class="detail">The reliable route. Needs <code>ics.php</code> uploaded next to <code>index.html</code>, and PHP switched on at your host.</p>
+  </div>
+
+  <div class="test" id="t2">
+    <div class="row"><span class="badge wait">testing</span><h2>2 &middot; Google&rsquo;s .ics feed, read directly</h2></div>
+    <p class="detail">Free and needs no setup, but Google usually refuses to let a web page read it. Failing here is normal.</p>
+  </div>
+
+  <div class="test" id="t3">
+    <div class="row"><span class="badge wait">waiting</span><h2>3 &middot; Google Calendar API</h2></div>
+    <p class="detail">Paste an API key to test it. Only needed if 1 and 2 both fail.</p>
+    <div class="keyrow">
+      <input id="key" type="text" placeholder="API key (optional)" autocomplete="off" spellcheck="false">
+      <button type="button" id="keyGo">Test key</button>
+    </div>
+  </div>
+
+  <div class="test" id="t4">
+    <div class="row"><span class="badge wait">testing</span><h2>4 &middot; Is the calendar public at all?</h2></div>
+    <p class="detail">If every test above fails, this is usually why. <a id="icsLink" href="#" target="_blank" rel="noopener">Open the calendar file in a new tab</a> — if you see lines of text starting <code>BEGIN:VCALENDAR</code>, it is public. If you get an error page, it is not, and nothing can read it until you fix that.</p>
+  </div>
+
+  <div class="verdict" id="verdict">
+    <h3>Verdict</h3>
+    <p>Running tests…</p>
+  </div>
+</div>
+
+<script>
+var CAL_ID='44902e7f5bd40973d3b0b790a16b0a3ff71838b79903b77756726e6cc9207a8d@group.calendar.google.com';
+var ICS_URL='https://calendar.google.com/calendar/ical/'+encodeURIComponent(CAL_ID)+'/public/basic.ics';
+document.getElementById('icsLink').href=ICS_URL;
+
+var results={};
+
+function set(id,state,msg){
+  var el=document.getElementById(id);
+  var b=el.querySelector('.badge');
+  b.className='badge '+(state==='ok'?'ok':state==='bad'?'bad':'wait');
+  b.textContent = state==='ok'?'works':state==='bad'?'blocked':'testing';
+  if(msg){
+    var p=document.createElement('p'); p.className='detail'; p.innerHTML=msg;
+    el.appendChild(p);
+  }
+}
+function countEvents(t){
+  if(!t || t.indexOf('BEGIN:VCALENDAR')<0) return -1;
+  return (t.match(/BEGIN:VEVENT/g)||[]).length;
+}
+
+function verdict(){
+  var v=document.getElementById('verdict'), h='<h3>Verdict</h3>';
+  if(results.proxy==='ok'){
+    h+='<p>All good. The website will read your calendar through <code>ics.php</code>, and the dates you block in Google Calendar will show up on the page within about fifteen minutes.</p>';
+  } else if(results.ics==='ok'){
+    h+='<p>Working. Google is letting the page read the feed directly, so you do not even need <code>ics.php</code> — though uploading it is still worth doing as a safety net.</p>';
+  } else if(results.api==='ok'){
+    h+='<p>The API key works. Paste it into <code>index.html</code> on the line <code>var E25_CALENDAR_KEY = "";</code> and the calendar will go live.</p>';
+  } else if(results.proxy==='missing'){
+    h+='<p><strong>Upload <code>ics.php</code> to e25.at</strong>, next to <code>index.html</code>, and reload this page. That is almost certainly all that is needed.</p>';
+  } else if(results.proxy==='nophp'){
+    h+='<p>Your server returned the PHP file instead of running it, so PHP is off for this site. Switch PHP on in your hosting panel, or use the API key route in test 3.</p>';
+  } else if(results.proxy==='notpublic'||results.ics==='notpublic'){
+    h+='<p><strong>The calendar is not shared publicly.</strong> In Google Calendar: Settings &rarr; this calendar &rarr; Access permissions for events &rarr; tick <em>Make available to public</em>. Then reload this page.</p>';
+  } else {
+    h+='<p>Nothing could reach the calendar from here. Work through it in order: check test 4 first (is the calendar public?), then upload <code>ics.php</code>, then try an API key.</p>';
+  }
+  h+='<p style="color:var(--ink-faint);font-size:.9rem">Whatever happens, the calendar on the website still draws — it just falls back to the dates typed by hand in <code>index.html</code>, so visitors never see a broken box.</p>';
+  v.innerHTML=h;
+}
+
+/* 1 — same-origin proxy */
+(function(){
+  if(location.protocol==='file:'){
+    results.proxy='missing'; set('t1','bad','Cannot test from a local file. Upload the site and open this page on e25.at.'); return check();
+  }
+  fetch('ics.php?v='+Date.now()).then(function(r){
+    return r.text().then(function(t){ return {status:r.status,text:t}; });
+  }).then(function(res){
+    if(res.text.indexOf('<?php')===0){ results.proxy='nophp'; set('t1','bad','The server sent the PHP source instead of running it — PHP is not enabled.'); }
+    else if(res.status===404){ results.proxy='missing'; set('t1','bad','<code>ics.php</code> is not on the server yet.'); }
+    else if(res.text.indexOf('BEGIN:VCALENDAR')>-1){ results.proxy='ok'; set('t1','ok','Read the calendar. <strong>'+countEvents(res.text)+'</strong> entries found.'); }
+    else if(res.text.indexOf('shared publicly')>-1){ results.proxy='notpublic'; set('t1','bad','The file works, but Google refused: the calendar is not public.'); }
+    else { results.proxy='bad'; set('t1','bad','Unexpected reply: '+res.status+' — '+res.text.slice(0,120)); }
+    check();
+  }).catch(function(e){
+    results.proxy='missing'; set('t1','bad','No answer: '+e.message); check();
+  });
+})();
+
+/* 2 — direct Google ICS */
+fetch(ICS_URL).then(function(r){
+  return r.text().then(function(t){ return {status:r.status,text:t}; });
+}).then(function(res){
+  if(res.text.indexOf('BEGIN:VCALENDAR')>-1){ results.ics='ok'; set('t2','ok','Read it directly. <strong>'+countEvents(res.text)+'</strong> entries found.'); }
+  else if(res.status===404){ results.ics='notpublic'; set('t2','bad','Google says 404 — the calendar is not public, or the ID is wrong.'); }
+  else { results.ics='bad'; set('t2','bad','Reply was not a calendar (HTTP '+res.status+').'); }
+  check();
+}).catch(function(e){
+  results.ics='bad'; set('t2','bad','Blocked by the browser — this is the normal, expected result. ('+e.message+')');
+  check();
+});
+
+/* 3 — API key, on demand */
+document.getElementById('keyGo').addEventListener('click',function(){
+  var k=document.getElementById('key').value.trim();
+  if(!k) return;
+  set('t3','wait');
+  var url='https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(CAL_ID)
+    +'/events?key='+encodeURIComponent(k)+'&maxResults=10&singleEvents=true';
+  fetch(url).then(function(r){ return r.json().then(function(j){ return {status:r.status,json:j}; }); })
+    .then(function(res){
+      if(res.status===200){ results.api='ok'; set('t3','ok','Key works. <strong>'+((res.json.items||[]).length)+'</strong> upcoming entries visible.'); }
+      else { results.api='bad'; set('t3','bad','HTTP '+res.status+' — '+((res.json.error&&res.json.error.message)||'rejected')); }
+      verdict();
+    }).catch(function(e){ results.api='bad'; set('t3','bad',e.message); verdict(); });
+});
+
+/* 4 — informational only */
+set('t4','wait');
+document.getElementById('t4').querySelector('.badge').textContent='manual';
+
+var done=0;
+function check(){ if(++done>=2) verdict(); }
+</script>
+</body>
+</html>
