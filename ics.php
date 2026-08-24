@@ -33,7 +33,7 @@ $API_KEY       = '';    // <-- paste your key here, OR better: put it in
    The whole file is just:      <?php $API_KEY = 'AIza...';                  */
 if (is_readable(__DIR__ . '/ics-key.php')) { include __DIR__ . '/ics-key.php'; }
 
-$CACHE_SECONDS = 60;    // how long to hold a copy. 0 = never cache.
+$CACHE_SECONDS = 10;    // how long to hold a copy. 0 = never cache.
                         // 60 is fine with a key; without one, 900 is plenty
                         // since Google's own feed is slower than that anyway.
 
