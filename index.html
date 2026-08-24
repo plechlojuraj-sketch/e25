@@ -278,7 +278,29 @@ footer{border-top:1px solid var(--rule);background:var(--ground-2)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--taken-bg:#3F6250;--taken-fg:#EDF2EE;--today-ring:#C79A5C;--busy-bg:#1E2721}}
 :root[data-theme="dark"]{--taken-bg:#3F6250;--taken-fg:#EDF2EE;--today-ring:#C79A5C;--busy-bg:#1E2721}
 
-.calwrap{margin-top:clamp(28px,4vw,44px)}
+.calwrap{margin-top:clamp(28px,4vw,44px);position:relative}
+.cal-d[data-info]{cursor:help}
+.cal-tip{position:absolute;z-index:30;max-width:17rem;padding:.72rem .9rem;
+  background:var(--ink);color:var(--ground);border-radius:3px;
+  box-shadow:0 8px 30px -10px rgba(0,0,0,.45);
+  font-size:.82rem;line-height:1.5;pointer-events:none;
+  opacity:0;transform:translateY(3px);transition:opacity .14s ease,transform .14s ease}
+.cal-tip.on{opacity:1;transform:none}
+.cal-tip b{display:block;font-weight:500;font-size:.74rem;letter-spacing:.06em;
+  text-transform:uppercase;opacity:.62;margin-bottom:.45rem}
+.cal-tip .ln{display:flex;gap:.55rem;align-items:baseline}
+.cal-tip .ln + .ln{margin-top:.4rem}
+.cal-tip .dot{width:6px;height:6px;border-radius:50%;flex:none;margin-top:.42em;
+  background:currentColor;opacity:.85}
+.cal-tip .dot.t{background:#8FBFA3}
+.cal-tip .dot.h{background:#E0B071}
+.cal-tip .dot.b{background:#9FB3C8}
+.cal-tip .sub{display:block;opacity:.6;font-size:.94em}
+.cal-tip::after{content:"";position:absolute;width:9px;height:9px;background:var(--ink);
+  left:var(--ax,50%);margin-left:-4.5px;transform:rotate(45deg)}
+.cal-tip.above::after{bottom:-4px}
+.cal-tip.below::after{top:-4px}
+@media (prefers-reduced-motion: reduce){.cal-tip{transition:none}}
 .cal-head{display:flex;align-items:center;gap:1rem;padding-bottom:.9rem;
   border-bottom:1px solid var(--rule-strong)}
 .cal-range{margin:0;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
@@ -866,10 +888,12 @@ table.holtab td.est::after{content:" ~";color:var(--ink-faint)}
     function iso(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
     function firstOfMonth(n){ var t=new Date(); return new Date(t.getFullYear(), t.getMonth()+n, 1); }
 
-    /* mark [from .. toExclusive) */
+    /* mark [from .. toExclusive); each day remembers the whole booking */
     function markRange(fromStr,toExclusive,label){
       var d=new Date(fromStr+'T00:00:00'), e=new Date(toExclusive+'T00:00:00'), guard=0;
-      while(d<e && guard++<800){ taken[iso(d)]=label||true; d.setDate(d.getDate()+1); }
+      var lastD=new Date(e.getTime()); lastD.setDate(lastD.getDate()-1);
+      var info={label:label||'', from:fromStr, last:iso(lastD)};
+      while(d<e && guard++<800){ taken[iso(d)]=info; d.setDate(d.getDate()+1); }
     }
     /* mark inclusive first..last, the way a person writes a booking */
     function markInclusive(a,b,label){
@@ -921,8 +945,12 @@ table.holtab td.est::after{content:" ~";color:var(--ink-faint)}
     /* every marked Slovak day in a given year, as {iso: label} */
     function skHolidayMap(y){
       var m={}, e=easter(y);
-      function tag(d,label){ m[iso(d)] = m[iso(d)] ? m[iso(d)]+' / '+label : label; }
-      function span(a,b,label){ var d=new Date(a.getTime()); while(d<=b){ tag(d,label); d=plus(d,1);} }
+      function push(d,o){ var k=iso(d); (m[k]=m[k]||[]).push(o); }
+      function tag(d,label){ push(d,{name:label,kind:'public'}); }
+      function span(a,b,label,est){
+        var d=new Date(a.getTime());
+        while(d<=b){ push(d,{name:label,kind:'school',from:iso(a),last:iso(b),est:!!est}); d=plus(d,1); }
+      }
       var SK = site.getAttribute('data-lang')==='sk';
       tag(new Date(y,0,1),  SK?'Nový rok':'New Year');
       tag(new Date(y,0,6),  SK?'Traja králi':'Epiphany');
@@ -931,11 +959,11 @@ table.holtab td.est::after{content:" ~";color:var(--ink-faint)}
       tag(new Date(y,11,24),SK?'Štedrý deň':'Christmas Eve');
       tag(new Date(y,11,25),SK?'1. sviatok vianočný':'Christmas Day');
       tag(new Date(y,11,26),SK?'2. sviatok vianočný':'St Stephen&rsquo;s Day');
-      var sb=skSpringBreak(y), eb=skEasterBreak(y), sfx=(sb.est?' ~':'');
-      span(sb.from, sb.to, (SK?'Jarné prázdniny BA/NR/TT':'Slovak spring school break')+sfx);
-      span(eb.from, eb.to, (SK?'Veľkonočné prázdniny':'Slovak Easter break')+sfx);
-      span(new Date(y-1,11,23), new Date(y,0,7), (SK?'Vianočné prázdniny':'Slovak Christmas break')+(y>SK_PUBLISHED_TO?' ~':''));
-      span(new Date(y,11,23), new Date(y+1,0,7), (SK?'Vianočné prázdniny':'Slovak Christmas break')+(y+1>SK_PUBLISHED_TO?' ~':''));
+      var sb=skSpringBreak(y), eb=skEasterBreak(y);
+      span(sb.from, sb.to, SK?'Jarné prázdniny — Bratislava, Nitra, Trnava':'Slovak spring school break — Bratislava, Nitra, Trnava', sb.est);
+      span(eb.from, eb.to, SK?'Veľkonočné prázdniny':'Slovak Easter school break', eb.est);
+      span(new Date(y-1,11,23), new Date(y,0,7), SK?'Vianočné prázdniny':'Slovak Christmas school break', y>SK_PUBLISHED_TO);
+      span(new Date(y,11,23), new Date(y+1,0,7), SK?'Vianočné prázdniny':'Slovak Christmas school break', y+1>SK_PUBLISHED_TO);
       return m;
     }
     var holCache={}, busyCache={};
@@ -943,7 +971,9 @@ table.holtab td.est::after{content:" ~";color:var(--ink-faint)}
     function busyFor(y){
       if(!busyCache[y]){
         var w=stmkSkiWeek(y), m={}, d=new Date(w.from.getTime());
-        while(d<=w.to){ m[iso(d)]=true; d=plus(d,1); }
+        var sb=skSpringBreak(y), clash=iso(sb.from)===iso(w.mon);
+        var info={from:iso(w.mon), last:iso(w.fri), clash:clash};
+        while(d<=w.to){ m[iso(d)]=info; d=plus(d,1); }
         busyCache[y]=m;
       }
       return busyCache[y];
@@ -973,6 +1003,7 @@ table.holtab td.est::after{content:" ~";color:var(--ink-faint)}
     }
 
     function render(){
+      hideTip();
       var today=new Date(); today.setHours(0,0,0,0);
       var todayKey=iso(today);
       var start=firstOfMonth(offset), endM=firstOfMonth(offset+MONTHS_SHOWN-1);
@@ -1003,11 +1034,15 @@ table.holtab td.est::after{content:" ~";color:var(--ink-faint)}
           var cell=document.createElement('div'); cell.className='cal-d'; cell.textContent=dd;
           if(cur<today) cell.classList.add('past');
           if(key===todayKey) cell.classList.add('today');
-          var hol=holFor(y)[key], busy=busyFor(y)[key], tips=[];
-          if(taken[key]){ cell.classList.add('taken'); if(taken[key]!==true) tips.push(taken[key]); }
-          if(hol){ cell.classList.add('hol'); tips.push(hol); }
-          if(busy){ cell.classList.add('busy'); tips.push(loc()==='sk-SK'?'Štajerské lyžiarske prázdniny':'Steiermark school ski week'); }
-          if(tips.length) cell.title=tips.join(' · ');
+          var hol=holFor(y)[key], busy=busyFor(y)[key];
+          if(taken[key]) cell.classList.add('taken');
+          if(hol) cell.classList.add('hol');
+          if(busy) cell.classList.add('busy');
+          if(taken[key]||hol||busy){
+            cell.setAttribute('data-info',key);
+            cell.tabIndex=0;
+            cell.setAttribute('aria-label', plainSummary(cur,key));
+          }
           grid.appendChild(cell);
         }
         box.appendChild(grid); monthsEl.appendChild(box);
@@ -1015,6 +1050,109 @@ table.holtab td.est::after{content:" ~";color:var(--ink-faint)}
       holCache={}; buildHolidayTable();
       calEl.style.display='';
     }
+
+
+    /* ---------- tooltip ------------------------------------------------ */
+    var tipEl=null, tipFor=null;
+
+    function longDate(d){ return new Intl.DateTimeFormat(loc(),{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d); }
+    function shortRange(aIso,bIso){
+      var a=new Date(aIso+'T00:00:00'), b=new Date(bIso+'T00:00:00');
+      return fmtRange(a,b,loc());
+    }
+    function nightsBetween(aIso,bIso){
+      return Math.round((new Date(bIso+'T00:00:00')-new Date(aIso+'T00:00:00'))/86400000)+1;
+    }
+    /* what a screen reader hears, and the fallback if JS positioning fails */
+    function plainSummary(dateObj,key){
+      var SK=loc()==='sk-SK', y=dateObj.getFullYear(), out=[longDate(dateObj)];
+      var t=taken[key]; if(t) out.push(SK?'obsadené':'taken');
+      var hs=holFor(y)[key]||[]; hs.forEach(function(h){ out.push(h.name); });
+      if(busyFor(y)[key]) out.push(SK?'štajerské lyžiarske prázdniny':'Steiermark ski week');
+      return out.join(', ');
+    }
+
+    function buildTip(key){
+      var SK=loc()==='sk-SK';
+      var d=new Date(key+'T00:00:00'), y=d.getFullYear();
+      var html='<b>'+longDate(d)+'</b>';
+      function line(cls,text,sub){
+        return '<span class="ln"><i class="dot '+cls+'"></i><span>'+text+(sub?'<span class="sub">'+sub+'</span>':'')+'</span></span>';
+      }
+      var t=taken[key];
+      if(t){
+        var n=nightsBetween(t.from,t.last);
+        var nights = SK ? (n===1?'1 noc':(n<5?n+' noci':n+' nocí')) : (n===1?'1 night':n+' nights');
+        html+=line('t', (SK?'Obsadené':'Taken')+(t.label?' — '+t.label:''), shortRange(t.from,t.last)+' · '+nights);
+      }else{
+        html+=line('', SK?'Voľné':'Free', SK?'nikto tu nie je':'nobody here');
+      }
+      (holFor(y)[key]||[]).forEach(function(h){
+        var sub='';
+        if(h.kind==='school'){
+          sub = shortRange(h.from,h.last) + (h.est ? ' · '+(SK?'orientačne, ministerstvo zatiaľ nezverejnilo':'estimated — not yet published') : '');
+        }else{
+          sub = SK?'štátny sviatok na Slovensku':'Slovak public holiday';
+        }
+        html+=line('h', h.name, sub);
+      });
+      var b=busyFor(y)[key];
+      if(b){
+        html+=line('b',
+          SK?'Štajerské lyžiarske prázdniny':'Steiermark school ski week',
+          shortRange(b.from,b.last)+' · '+(b.clash
+            ? (SK?'zhoduje sa s bratislavskými — zjazdovky budú plné':'same week as Bratislava — the slopes will be full')
+            : (SK?'na svahoch bude rušno':'busy on the slopes')));
+      }
+      return html;
+    }
+
+    function hideTip(){ if(tipEl){ tipEl.classList.remove('on'); } tipFor=null; }
+
+    function showTip(cell){
+      var key=cell.getAttribute('data-info'); if(!key) return;
+      if(tipFor===key && tipEl && tipEl.classList.contains('on')) return;
+      var wrap=document.getElementById('calwrap');
+      if(!tipEl){ tipEl=document.createElement('div'); tipEl.className='cal-tip'; wrap.appendChild(tipEl); }
+      tipFor=key;
+      tipEl.innerHTML=buildTip(key);
+      tipEl.classList.remove('above','below');
+      tipEl.style.left='0px'; tipEl.style.top='0px';
+      var wr=wrap.getBoundingClientRect(), cr=cell.getBoundingClientRect();
+      var tw=tipEl.offsetWidth, th=tipEl.offsetHeight;
+      var cx=cr.left-wr.left+cr.width/2;
+      var left=Math.max(4, Math.min(cx-tw/2, wr.width-tw-4));
+      var above=(cr.top-wr.top) > th+12;
+      var top = above ? (cr.top-wr.top-th-9) : (cr.bottom-wr.top+9);
+      tipEl.classList.add(above?'above':'below');
+      tipEl.style.left=Math.round(left)+'px';
+      tipEl.style.top=Math.round(top)+'px';
+      var arrow=Math.max(10, Math.min(cx-left, tw-10));
+      tipEl.style.setProperty('--ax', Math.round(arrow)+'px');
+      tipEl.classList.add('on');
+    }
+
+    (function wireTips(){
+      var host=document.getElementById('calMonths');
+      function cellFrom(e){ var t=e.target; return t && t.closest ? t.closest('.cal-d[data-info]') : null; }
+      host.addEventListener('mouseover',function(e){ var c=cellFrom(e); if(c) showTip(c); });
+      host.addEventListener('mouseout',function(e){
+        var c=cellFrom(e); if(!c) return;
+        var to=e.relatedTarget;
+        if(to && to.closest && to.closest('.cal-d[data-info]')===c) return;
+        hideTip();
+      });
+      host.addEventListener('focusin',function(e){ var c=cellFrom(e); if(c) showTip(c); });
+      host.addEventListener('focusout',hideTip);
+      host.addEventListener('click',function(e){
+        var c=cellFrom(e); if(!c){ hideTip(); return; }
+        if(tipFor===c.getAttribute('data-info')) hideTip(); else showTip(c);
+      });
+      document.addEventListener('click',function(e){
+        if(!e.target.closest || !e.target.closest('#calMonths')) hideTip();
+      });
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape') hideTip(); });
+    })();
 
     /* ---------- parse an .ics text into `taken` ---------- */
     function parseIcs(txt){
